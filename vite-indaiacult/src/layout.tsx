@@ -10,7 +10,8 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="w-screen h-screen">
       <NavBar />
-      <div>{children}</div>
+
+      <div className="overflow-x-hidden flex flex-col w-full">{children}</div>
     </div>
   );
 };

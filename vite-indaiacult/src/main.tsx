@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import "./App.css";
 import Layout from "./layout.tsx";
 import { BrowserRouter, Routes, Route, LinkProps } from "react-router-dom";
+import Landing from "./pages/landing.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route element={<App />} path="/a" />
+          <Route element={<Landing />} path="/" />
         </Routes>
       </BrowserRouter>
     </Layout>
