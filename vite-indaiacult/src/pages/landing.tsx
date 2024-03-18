@@ -7,11 +7,10 @@ import tiktok_icon from "../assets/tiktok.svg";
 const Landing = () => {
   return (
     <div>
-      <div className="flex flex-row justify-center items-center px-32">
-        <div className="flex flex-col w-full gap-14">
-          <h1 className="font-montserrat font-semibold text-[54px]">
-            Descubra toda a <br /> cultura de <br /> Indaiatuba em um <br /> só
-            lugar
+      <div className="flex flex-col justify-center md:flex-row  items-center px-16 md:px-32">
+        <div className="flex flex-col w-full gap-8   md:gap-14">
+          <h1 className="font-montserrat font-semibold text-4xl md:text-5xl">
+            Descubra toda a cultura de Indaiatuba em um só lugar
           </h1>
           <p className="font-montserrat font-semibold text-xl">
             O indaiacult te permite explorar <br /> completamente a história{" "}
