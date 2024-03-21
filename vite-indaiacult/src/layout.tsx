@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactNode } from "react";
 import NavBar from "./components/NavBar";
+import { useState, useEffect } from "react";
 
 interface Props {
   children: ReactNode;
@@ -8,7 +9,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen ">
       <NavBar />
 
       <div className="overflow-x-hidden flex flex-col w-full">{children}</div>

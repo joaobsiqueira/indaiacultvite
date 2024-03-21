@@ -8,8 +8,9 @@ export default {
         montserrat: ["'Montserrat'", "sans-serif"],
       },
       colors: {
-        primary: "#F87060",
-        secondary: "#3E8989",
+        main: "#F87060",
+        lightblue: "#3E8989",
+        darkblue: "#102542",
       },
     },
   },

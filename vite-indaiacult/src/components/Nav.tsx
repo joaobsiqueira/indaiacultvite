@@ -1,35 +1,37 @@
-import { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import LoginButton from "./LoginButton";
+import ToggleThemeButton from "./ToggleThemeButton";
 
 const NavLinks = () => {
-  const [icon, setIcon] = useState(false);
-  const toggleTheme = () => {
-    setIcon(!icon);
+  const isActive = (path: string) => {
+    return window.location.pathname === path;
   };
 
   return (
     <>
       <a
         href="/artistas"
-        className="text-secondary font-montserrat font-semibold text-lg"
+        className={`text-lg text-darkblue dark:text-lightblue font-medium relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ${
+          isActive("/artistas") ? "font-bold" : ""
+        }`}
       >
         Artistas
       </a>
       <a
         href="/Obras"
-        className="text-secondary font-montserrat font-semibold text-lg"
+        className="text-lg text-darkblue dark:text-lightblue font-semibold relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
       >
         Obras
       </a>
       <a
         href="/Sobre"
-        className="text-secondary font-montserrat font-semibold text-lg"
+        className="text-lg  text-darkblue dark:text-lightblue font-semibold relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
       >
         Sobre
       </a>
-      <button onClick={toggleTheme}>
-        {icon ? <Sun size={44} /> : <Moon size={44} />}
-      </button>
+      <LoginButton></LoginButton>
+      <ToggleThemeButton></ToggleThemeButton>
     </>
   );
 };
