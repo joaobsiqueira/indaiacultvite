@@ -13,12 +13,14 @@
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.14.1",
     "autoprefixer": "^10.4.17",
+    "axios": "^1.6.8",
     "lucide-react": "^0.336.0",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "use-history": "^1.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
