@@ -11,25 +11,30 @@ const NavLinks = () => {
   return (
     <>
       <a
-        href="/artistas"
+        href="/artists"
         className={`text-lg text-darkblue dark:text-lightblue font-medium relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ${
-          isActive("/artistas") ? "font-bold" : ""
+          isActive("/artists") ? "font-extrabold" : ""
         }`}
       >
         Artistas
       </a>
       <a
-        href="/Obras"
-        className="text-lg text-darkblue dark:text-lightblue font-semibold relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+        href="/obras"
+        className={`text-lg text-darkblue dark:text-lightblue font-medium relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ${
+          isActive("/obras") ? "font-extrabold" : ""
+        }`}
       >
         Obras
       </a>
       <a
-        href="/Sobre"
-        className="text-lg  text-darkblue dark:text-lightblue font-semibold relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer"
+        href="/sobre"
+        className={`text-lg text-darkblue dark:text-lightblue font-medium relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ${
+          isActive("/sobre") ? "font-extrabold" : ""
+        }`}
       >
         Sobre
       </a>
+
       <LoginButton></LoginButton>
       <ToggleThemeButton></ToggleThemeButton>
     </>

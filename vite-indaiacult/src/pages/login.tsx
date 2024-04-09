@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Divide } from "lucide-react";
 
-const Login: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -56,4 +56,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

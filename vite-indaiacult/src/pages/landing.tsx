@@ -4,7 +4,7 @@ import facebook_icon from "../assets/facebook.svg";
 import instagram_icon from "../assets/instagram.svg";
 import tiktok_icon from "../assets/tiktok.svg";
 
-const Landing = () => {
+const LandingPage = () => {
   return (
     <div>
       <div className="flex flex-col justify-center md:flex-row bg-white dark:bg-black items-center px-8">
@@ -41,4 +41,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default LandingPage;
