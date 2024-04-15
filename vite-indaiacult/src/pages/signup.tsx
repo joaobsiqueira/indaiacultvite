@@ -31,49 +31,52 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col gap-9 items-center justify-center w-full">
-        <h1 className="text-4xl font-bold">Cadastre-se</h1>
-        <p>
-          Já possui uma conta? Faça{" "}
-          <a href="/login" className="text-lightblue">
-            Login
-          </a>
-        </p>
+    <div className="flex justify-center">
+      <div className="max-w-md">
+        <form className="flex flex-col items-center gap-8 justify-center bg-white p-7 rounded-lg w-full">
+          <div className="flex flex-col gap-9 items-center justify-center w-full">
+            <h1 className="text-4xl font-bold">Cadastre-se</h1>
+            <p>
+              Já possui uma conta? Faça{" "}
+              <a href="/login" className="text-lightblue">
+                Login
+              </a>
+            </p>
+          </div>
+
+          {error && <div className="text-red-500 mb-4">{error}</div>}
+          {succesMessage && (
+            <div className="text-geen-500 mb-4">{succesMessage}</div>
+          )}
+          <input
+            type="text"
+            placeholder="Insira seu nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border border-white border-b-lightblue mt-16 outline-none w-72"
+          />
+          <input
+            type="email"
+            placeholder="Insira seu Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="border border-white border-b-lightblue mt-16 outline-none w-72"
+          />
+          <input
+            type="password"
+            placeholder="Crie uma senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="border border-white border-b-lightblue mt-16 outline-none w-72"
+          />
+          <button
+            onClick={handleSignUp}
+            className="bg-lightblue w-72 py-3 hover:bg-darkblue text-white rounded-md"
+          >
+            Criar conta
+          </button>
+        </form>
       </div>
-      <form className="flex flex-col items-center gap-8 justify-center w-full">
-        {error && <div className="text-red-500 mb-4">{error}</div>}
-        {succesMessage && (
-          <div className="text-geen-500 mb-4">{succesMessage}</div>
-        )}
-        <input
-          type="text"
-          placeholder="Insira seu nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="border border-white border-b-lightblue mt-16 outline-none w-72"
-        />
-        <input
-          type="email"
-          placeholder="Insira seu Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="border border-white border-b-lightblue mt-16 outline-none w-72"
-        />
-        <input
-          type="password"
-          placeholder="Crie uma senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border border-white border-b-lightblue mt-16 outline-none w-72"
-        />
-        <button
-          onClick={handleSignUp}
-          className="bg-lightblue w-72 py-3 hover:bg-darkblue text-white rounded-md"
-        >
-          Criar conta
-        </button>
-      </form>
     </div>
   );
 };

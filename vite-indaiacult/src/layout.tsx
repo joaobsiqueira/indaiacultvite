@@ -9,7 +9,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="w-screen h-screen   ">
+    <div className="w-screen h-screen  ">
       <NavBar />
 
       <div className="overflow-x-hidden flex flex-col w-full">{children}</div>
