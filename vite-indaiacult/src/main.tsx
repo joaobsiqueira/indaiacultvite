@@ -10,21 +10,24 @@ import ArtistasPage from "./pages/artists.tsx";
 import ObrasPage from "./pages/obras.tsx";
 import SobrePage from "./pages/sobre.tsx";
 import LandingPage from "./pages/landing.tsx";
+import { ThemeProvider } from "./context.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Layout>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<App />} path="/a" />
-          <Route element={<LandingPage />} path="/" />
-          <Route element={<LoginPage />} path="/login" />
-          <Route element={<SignUpPage />} path="/cadastro" />
-          <Route element={<ArtistasPage />} path="/artists" />
-          <Route element={<ObrasPage />} path="/obras" />
-          <Route element={<SobrePage />} path="/sobre" />
-        </Routes>
-      </BrowserRouter>
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<App />} path="/a" />
+            <Route element={<LandingPage />} path="/" />
+            <Route element={<LoginPage />} path="/login" />
+            <Route element={<SignUpPage />} path="/cadastro" />
+            <Route element={<ArtistasPage />} path="/artists" />
+            <Route element={<ObrasPage />} path="/obras" />
+            <Route element={<SobrePage />} path="/sobre" />
+          </Routes>
+        </BrowserRouter>
+      </Layout>
+    </ThemeProvider>
   </React.StrictMode>
 );

@@ -5,8 +5,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        cardDefault: "url('src/assets/UserBanner.png')",
-        whiteMode: "/src/assets/lightBg.svg",
+        cardDefault: "url('/assets/UserBanner.png')",
+        whiteModeBg: "url('/assets/lightBg.svg')",
+        darkModeBg: "url('/assets/darkBg.svg')",
       },
       fontFamily: {
         montserrat: ["'Montserrat'", "sans-serif"],

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import LoginButton from "./LoginButton";
 import ToggleThemeButton from "./ToggleThemeButton";
+import { useTheme } from "../context";
 
 const NavLinks = () => {
   const isActive = (path: string) => {
@@ -43,6 +44,7 @@ const NavLinks = () => {
 
 const Nav = () => {
   const [isOpen, SetIsOpen] = useState(false);
+  const { darkMode } = useTheme();
 
   const toggleNavBar = () => {
     SetIsOpen(!isOpen);
@@ -54,7 +56,22 @@ const Nav = () => {
           <NavLinks />
         </div>
         <div className="md:hidden">
-          <button onClick={toggleNavBar}>{isOpen ? <X /> : <Menu />}</button>
+          <button
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            onClick={toggleNavBar}
+          >
+            {isOpen ? (
+              <X
+                className="dark:text-white"
+                aria-label="Ícone X para fechar menu"
+              />
+            ) : (
+              <Menu
+                className="dark:text-white"
+                aria-label="Ícone de 3 barras para abrir o menu"
+              />
+            )}
+          </button>
         </div>
       </nav>
       {isOpen && (
