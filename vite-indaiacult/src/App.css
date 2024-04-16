@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-image: url("/src/assets/lightBg.svg");
+iconify-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
 }

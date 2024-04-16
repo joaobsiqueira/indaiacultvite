@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../context";
+import { Facebook } from "lucide-react";
 
 const LandingPage = () => {
   const { darkMode } = useTheme();
@@ -14,14 +15,11 @@ const LandingPage = () => {
             O indaiacult te permite explorar <br /> completamente a história{" "}
             <br /> e toda arte indaiatubana.
           </p>
-          <div className="flex flex-row gap-4 md:gap-8">
+          <div className="flex flex-row items-center gap-4 md:gap-8">
             <a href="">
-              <img
-                src="/assets/instagram.svg"
-                width={54}
-                height={54}
-                className="text-darkblue dark:text-lightblue"
-                alt=""
+              <Facebook
+                aria-label="Ícone da rede social facebook, que irá te encaminhar para a página do IndaiaCult"
+                className="text-darkblue"
               />
             </a>
           </div>

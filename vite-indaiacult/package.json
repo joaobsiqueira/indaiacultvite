@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^20.12.7",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.14.1",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.8",
+    "iconify": "^1.4.0",
     "lucide-react": "^0.336.0",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
@@ -24,6 +26,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@iconify/react": "^4.1.1",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@types/uuid": "^9.0.8",
