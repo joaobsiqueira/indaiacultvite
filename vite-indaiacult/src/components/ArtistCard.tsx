@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Artist } from "../interfaces/ArtistInterface";
 
 const ArtistCard: React.FC<{
-  artista: { name: string; genre: string; image: string; banner: string };
+  artista: Artist;
 }> = ({ artista }) => {
   return (
-    <div className="flex flex-col md:flex-row  mx-auto rounded-lg overflow-hidden">
-      <div className="relative">
+    <div className="flex flex-col w-full rounded-lg mx-auto gap-2 shadow-darkblue dark:shadow-lightblue bg-white dark:bg-diffBlack shadow-md">
+      <div className="-space-y-12">
         <img
-          className="w-full h-32 object-cover"
+          className="w-full h-32 object-cover rounded-tl-xl rounded-tr-xl"
           src={artista.banner}
           alt="Banner"
         />
-
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-20 h-20 border-4 border-lightblue rounded-full overflow-hidden">
-          <img
-            className="w-full h-full object-cover"
-            src={artista.image}
-            alt="Foto de perfil"
-          />
-        </div>
+        <img
+          src={artista.image}
+          className="h-24 w-24 ml-4 rounded-full object-cover"
+        />
       </div>
-      <h3 className="text-diffWhite font-bold"></h3>
+      <div className="p-4">
+        <p className="text-black/50 dark:text-white/50 font-semibold">
+          {artista.genre}
+        </p>
+        <h3 className=" font-bold dark:text-white">{artista.name}</h3>
+        <p className=" dark:text-white">{artista.description}</p>
+      </div>
     </div>
   );
 };
