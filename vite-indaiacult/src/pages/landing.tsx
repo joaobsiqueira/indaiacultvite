@@ -6,7 +6,7 @@ const LandingPage = () => {
   const { darkMode } = useTheme();
   return (
     <div>
-      <div className="flex flex-col justify-center md:flex-row items-center px-8">
+      <div className="flex flex-col justify-center md:flex-row items-center">
         <div className="flex flex-col w-full gap-8 md:w-1/2 md:gap-14">
           <h1 className="font-montserrat font-semibold text-black dark:text-white text-4xl md:text-6xl ">
             Descubra toda a cultura de Indaiatuba em um só lugar

@@ -16,7 +16,7 @@ export default {
         main: "#F87060",
         lightblue: "#3E8989",
         darkblue: "#102542",
-        diffBlack: "##80808080",
+        diffBlack: "#121212",
       },
     },
   },
