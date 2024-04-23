@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Artist } from "../interfaces/ArtistInterface";
+import { Link } from "react-router-dom";
 
 const ArtistCard: React.FC<{
   artista: Artist;
@@ -27,10 +28,12 @@ const ArtistCard: React.FC<{
         <p className=" dark:text-white">{artista.description}</p>
       </div>
       <div className="py-5">
-        <button className="ml-2 flex items-center justify-center gap-2 py-3 px-5 border font-semibold border-darkblue hover:border-lightblue dark:border-lightblue dark:hover:border-darkblue text-black dark:text-white rounded-2xl">
-          Ver mais
-          <FaArrowRightLong className="flex mt-1" size={18} />
-        </button>
+        <Link to="/artist:id">
+          <button className="ml-2 flex items-center justify-center gap-2 py-3 px-5 border font-semibold border-darkblue hover:border-lightblue dark:border-lightblue dark:hover:border-darkblue text-black dark:text-white rounded-2xl">
+            Ver mais
+            <FaArrowRightLong className="flex mt-1" size={18} />
+          </button>
+        </Link>
       </div>
     </div>
   );
