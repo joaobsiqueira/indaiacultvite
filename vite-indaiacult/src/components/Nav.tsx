@@ -51,8 +51,8 @@ const Nav = () => {
   };
   return (
     <>
-      <nav className="flex w-1/3 justify-end">
-        <div className="hidden w-full justify-between items-center md:flex">
+      <nav className="flex w-full justify-end">
+        <div className="hidden gap-4 items-center md:flex">
           <NavLinks />
         </div>
         <div className="md:hidden">
