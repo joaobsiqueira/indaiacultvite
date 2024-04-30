@@ -14,7 +14,7 @@ const NavLinks = () => {
       <a
         href="/artist"
         className={`text-lg text-darkblue dark:text-lightblue font-medium relative after:bg-main after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ${
-          isActive("/artist") ? "font-extrabold" : ""
+          isActive("/artists") ? "font-extrabold" : ""
         }`}
       >
         Artistas
@@ -51,7 +51,7 @@ const Nav = () => {
   };
   return (
     <>
-      <nav className="flex w-full justify-end">
+      <nav className="flex  w-full justify-end">
         <div className="hidden gap-4 items-center md:flex">
           <NavLinks />
         </div>

@@ -34,7 +34,7 @@ const ArtistCard: React.FC<{
         </p>
       </div>
       <div className="w-max pb-5">
-        <Link to="/artist:id">
+        <Link to={`/artist/${artista.id}`}>
           <button className="ml-2 flex items-center text-xl justify-center gap-2 py-3 px-5 border font-semibold border-darkblue hover:border-lightblue dark:border-lightblue dark:hover:border-darkblue text-black dark:text-white rounded-2xl">
             Ver mais
             <FaArrowRightLong className="flex mt-1" size={18} />
