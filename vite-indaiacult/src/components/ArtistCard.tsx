@@ -17,6 +17,7 @@ const ArtistCard: React.FC<{
         />
         <img
           src={artista.image}
+          alt={`foto do artista ${artista.name}`}
           className="h-24 w-24 ml-4 rounded-full object-cover"
         />
       </div>
@@ -32,10 +33,11 @@ const ArtistCard: React.FC<{
         <p className=" dark:text-white font-montserrat font-medium line-clamp-3">
           {artista.description}
         </p>
-      </div>
-      <div className="w-max pb-5">
         <Link to={`/artist/${artista.id}`}>
-          <button className="ml-2 flex items-center text-xl justify-center gap-2 py-3 px-5 border font-semibold border-darkblue hover:border-lightblue dark:border-lightblue dark:hover:border-darkblue text-black dark:text-white rounded-2xl">
+          <button
+            aria-label="botão para ver mais sobre um artista em específico"
+            className="flex items-center mt-3 text-xl justify-center capitalize gap-2 py-2 px-5 border font-semibold border-darkblue hover:border-lightblue dark:border-lightblue dark:hover:border-darkblue text-black dark:text-white rounded-3xl"
+          >
             Ver mais
             <FaArrowRightLong className="flex mt-1" size={18} />
           </button>
