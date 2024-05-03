@@ -1,6 +1,5 @@
-import React from "react";
 import ArtistCard from "../components/ArtistCard";
-import { Artist } from "../interfaces/ArtistInterface";
+
 import { artists } from "../mock";
 
 const ArtistsPage = () => {

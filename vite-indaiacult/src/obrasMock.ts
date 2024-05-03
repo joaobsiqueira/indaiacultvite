@@ -1,6 +1,4 @@
 import { Obras } from "./interfaces/ObrasInterface";
-import { Artist } from "./interfaces/ArtistInterface";
-import { artists } from "./mock";
 
 const Obra: Obras[] = [
   {
@@ -14,3 +12,4 @@ const Obra: Obras[] = [
     artista: "José Paulo",
   },
 ];
+console.log(Obra);

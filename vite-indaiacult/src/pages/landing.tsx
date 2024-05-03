@@ -1,4 +1,3 @@
-import React from "react";
 import { useTheme } from "../context";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 

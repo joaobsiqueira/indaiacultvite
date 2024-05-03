@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Divide } from "lucide-react";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -14,6 +13,7 @@ const LoginPage: React.FC = () => {
         email,
         password,
       });
+      console.log(response);
     } catch (error) {
       setError("Credenciais inválidas");
     }

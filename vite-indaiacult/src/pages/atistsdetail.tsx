@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { seeById } from "../services/ArtistService";
+
 import { artists } from "../mock";
 import { Artist } from "../interfaces/ArtistInterface";
 
 const ArtistDetailstPage = () => {
   const { id } = useParams();
 
-  const [artista, setArtista] = useState<Artist | undefined>(artists[0]);
+  const [artista] = useState<Artist | undefined>(artists[0]); //fazer setArtista
   if (!id || !artista) {
     return <Navigate to={"/artist"} replace />;
   }

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./App.css";
 import Layout from "./layout.tsx";
-import { BrowserRouter, Routes, Route, LinkProps } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/login.tsx";
 import SignUpPage from "./pages/signup.tsx";
 import ArtistasPage from "./pages/artists.tsx";

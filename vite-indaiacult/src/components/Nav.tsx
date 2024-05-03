@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import LoginButton from "./LoginButton";
 import ToggleThemeButton from "./ToggleThemeButton";
-import { useTheme } from "../context";
 
 const NavLinks = () => {
   const isActive = (path: string) => {
@@ -44,7 +43,6 @@ const NavLinks = () => {
 
 const Nav = () => {
   const [isOpen, SetIsOpen] = useState(false);
-  const { darkMode } = useTheme();
 
   const toggleNavBar = () => {
     SetIsOpen(!isOpen);
