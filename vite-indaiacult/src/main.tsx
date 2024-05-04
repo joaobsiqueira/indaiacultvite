@@ -15,21 +15,21 @@ import ArtistDetailstPage from "./pages/atistsdetail.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <Layout>
-        <BrowserRouter>
+    <BrowserRouter>
+      <ThemeProvider>
+        <Layout>
           <Routes>
             <Route element={<App />} path="/a" />
             <Route element={<LandingPage />} path="/" />
             <Route element={<LoginPage />} path="/login" />
             <Route element={<SignUpPage />} path="/cadastro" />
-            <Route element={<ArtistasPage />} path="/artist" />
+            <Route element={<ArtistasPage />} path="/artists" />
             <Route element={<ObrasPage />} path="/obras" />
             <Route element={<SobrePage />} path="/sobre" />
             <Route element={<ArtistDetailstPage />} path="/artist/:id" />
           </Routes>
-        </BrowserRouter>
-      </Layout>
-    </ThemeProvider>
+        </Layout>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

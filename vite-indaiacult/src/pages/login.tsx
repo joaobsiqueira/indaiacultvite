@@ -19,7 +19,7 @@ const LoginPage: React.FC = () => {
     }
   };
   return (
-    <div className="flex justify-center">
+    <section className="flex justify-center">
       <div className="max-w-md">
         <form className="flex flex-col items-center gap-20 bg-white rounded-lg justify-center w-full p-7 maw-w-md">
           <div className="flex flex-col gap-9 items-center justify-center w-full">
@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

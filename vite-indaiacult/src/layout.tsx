@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import NavBar from "./components/NavBar";
+import FixedWidget from "./components/FixedWidget";
 
 interface Props {
   children: ReactNode;
@@ -7,12 +8,12 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="w-screen max-h-max bg-whiteModeBg dark:bg-darkModeBg min-h-screen">
+    <div className="overflow-hidden flex h-screen bg-white dark:bg-black">
       <NavBar />
-
-      <main className="overflow-x-hidden flex flex-col w-full py-5 px-8">
-        {children}
-      </main>
+      <div className="flex-grow flex pr-32 pl-12 pt-8 gap-8">
+        <main className="flex flex-col overflow-y-scroll">{children}</main>
+        <FixedWidget />
+      </div>
     </div>
   );
 };

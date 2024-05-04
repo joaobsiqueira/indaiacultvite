@@ -1,5 +1,5 @@
 const SobrePage = () => {
-  return <div>SobrePage</div>;
+  return <section>SobrePage</section>;
 };
 
 export default SobrePage;

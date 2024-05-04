@@ -13,7 +13,7 @@ const ArtistsPage = () => {
             trabalho
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-5">
+        <div className="flex flex-col gap-5">
           {artists.map((artista) => (
             <ArtistCard artista={artista} key={artista.id} />
           ))}

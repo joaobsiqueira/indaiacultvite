@@ -31,7 +31,7 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <section className="flex justify-center">
       <div className="max-w-md">
         <form className="flex flex-col items-center gap-8 justify-center bg-white p-7 rounded-lg w-full">
           <div className="flex flex-col gap-9 items-center justify-center w-full">
@@ -77,7 +77,7 @@ const SignUpPage: React.FC = () => {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
