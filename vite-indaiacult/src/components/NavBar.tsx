@@ -11,9 +11,7 @@ const NavBar = () => {
             Cult.
           </span>
         </a>
-        <div className="hidden md:block w-full">
-          <SearchBar />
-        </div>
+
         <Nav />
       </aside>
     </>
