@@ -1,6 +1,6 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+
 import "./App.css";
 import Layout from "./layout.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,24 +12,35 @@ import SobrePage from "./pages/sobre.tsx";
 import LandingPage from "./pages/landing.tsx";
 import { ThemeProvider } from "./context.tsx";
 import ArtistDetailstPage from "./pages/atistsdetail.jsx";
+import { UserProvider } from "./userContext.tsx";
+import PrivateRoute from "./privateRoute.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <Layout>
+      <UserProvider>
+        <ThemeProvider>
           <Routes>
-            <Route element={<App />} path="/a" />
+            <Route
+              path="/*"
+              element={
+                <Layout>
+                  <PrivateRoute element={<ArtistasPage />} path="/artists" />
+                  <PrivateRoute element={<ObrasPage />} path="/obras" />
+                  <PrivateRoute element={<SobrePage />} path="/sobre" />
+                  <PrivateRoute
+                    element={<ArtistDetailstPage />}
+                    path="/artist/:id"
+                  />
+                </Layout>
+              }
+            />
             <Route element={<LandingPage />} path="/" />
             <Route element={<LoginPage />} path="/login" />
             <Route element={<SignUpPage />} path="/cadastro" />
-            <Route element={<ArtistasPage />} path="/artists" />
-            <Route element={<ObrasPage />} path="/obras" />
-            <Route element={<SobrePage />} path="/sobre" />
-            <Route element={<ArtistDetailstPage />} path="/artist/:id" />
           </Routes>
-        </Layout>
-      </ThemeProvider>
+        </ThemeProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
