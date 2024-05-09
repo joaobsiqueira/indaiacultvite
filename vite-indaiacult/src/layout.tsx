@@ -8,14 +8,14 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="flex gap-12 overflow-hidden h-screen bg-white dark:bg-black">
+    <div className="flex dark:text-white gap-12 overflow-hidden h-screen bg-white dark:bg-black">
       <NavBar />
 
-      <main className="flex w-full flex-grow my-8 flex-col overflow-y-scroll">
+      <main className="flex w-full flex-grow lg:my-8 p-6 lg:p-0 flex-col overflow-y-scroll">
         {children}
       </main>
 
-      <div className="overflow-y-scroll mr-12 my-8">
+      <div className="hidden lg:block overflow-y-scroll mr-12 my-8">
         <FixedWidget />
       </div>
     </div>

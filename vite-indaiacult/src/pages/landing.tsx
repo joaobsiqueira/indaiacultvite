@@ -12,7 +12,7 @@ const LandingPage = () => {
         <p className="font-montserrat text-start font-medium text-4xl md:text-6xl">
           Conheça a <span className="text-main font-semibold">cultura</span> e
           os artistas <br /> de{" "}
-          <span className="text-darkblue font-semibold">Indaiatuba</span>{" "}
+          <span className="text-lightblue font-semibold">Indaiatuba</span>{" "}
           <span>com Indaiacult!</span>
         </p>
         <h3 className="font-montserrat text-start text-xl md:text-3xl justify-center">

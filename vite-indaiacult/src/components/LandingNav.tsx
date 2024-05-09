@@ -6,9 +6,7 @@ const LandingNav = () => {
       <div className="flex items-center justify-between p-5">
         <div>
           <span className="text-main text-3xl font-bold">Indaia</span>
-          <span className="text-darkblue dark:text-lightblue text-3xl font-bold">
-            Cult.
-          </span>
+          <span className="text-lightblue text-3xl font-bold">Cult.</span>
         </div>
         <Link
           to="/sobre"
