@@ -5,7 +5,6 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        landingBg: "url('/assets/gradientIcBg.svg')",
         landingContainer: "url('/assets/landingContainerImage.jpg')",
       },
       fontFamily: {
@@ -17,7 +16,7 @@ export default {
         darkblue: "#102542",
         diffBlack: "#121212",
         Solid: "#FCF5E5",
-        highlightDark: "#161616",
+        highlightDark: "#212121",
         highlight: "#E5E4E2",
       },
     },
