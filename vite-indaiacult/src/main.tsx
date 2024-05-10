@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./App.css";
@@ -27,7 +27,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Layout>
                   <PrivateRoute element={<ArtistasPage />} path="/artists" />
                   <PrivateRoute element={<ObrasPage />} path="/obras" />
-                  <PrivateRoute element={<SobrePage />} path="/sobre" />
                   <PrivateRoute
                     element={<ArtistDetailstPage />}
                     path="/artist/:id"
@@ -35,6 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 </Layout>
               }
             />
+            <Route element={<SobrePage />} path="/sobre" />
             <Route element={<LandingPage />} path="/" />
             <Route element={<LoginPage />} path="/login" />
             <Route element={<SignUpPage />} path="/cadastro" />
