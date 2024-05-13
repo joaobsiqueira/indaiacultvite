@@ -11,7 +11,7 @@ const ObrasCard: React.FC<{
         alt="foto da obra"
         className="w-full h-64 rounded-xl"
       />
-      <div className="flex w-full flex-col justify-between">
+      <div className="flex w-full flex-col justify-between gap-4">
         <div>
           <h1 className="font-semibold text-2xl capitalize line-clamp-1">
             {obra.title}

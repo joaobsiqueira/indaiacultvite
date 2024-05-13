@@ -14,6 +14,7 @@ import { ThemeProvider } from "./context.tsx";
 import ArtistDetailstPage from "./pages/atistsdetail.jsx";
 import { UserProvider } from "./userContext.tsx";
 import PrivateRoute from "./privateRoute.tsx";
+import CreateArtist from "./pages/createartist.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -34,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 </Layout>
               }
             />
+            <Route element={<CreateArtist />} path="/create" />
             <Route element={<SobrePage />} path="/sobre" />
             <Route element={<LandingPage />} path="/" />
             <Route element={<LoginPage />} path="/login" />

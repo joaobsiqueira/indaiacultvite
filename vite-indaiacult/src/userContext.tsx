@@ -28,7 +28,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     email: "",
     id: "",
     img: "",
-    name: "aaaa",
+    name: "",
   });
   const [artist, setArtist] = useState<Artist | null>(null);
   return (

@@ -9,8 +9,8 @@ const LandingPage = () => {
     <section className="backgroundLanding flex-row bg-cover h-screen">
       <LandingNav />
 
-      <div className="flex flex-col py-36 gap-24 p-5">
-        <p className="font-montserrat dark:text-white text-start font-medium text-4xl md:text-6xl">
+      <div className="flex flex-col py-36 gap-12 p-5">
+        <p className="font-montserrat dark:text-white text-start font-medium text-4xl md:text-5xl">
           Conheça a <span className="text-main font-semibold">cultura</span> e
           os artistas <br /> de{" "}
           <span className="text-darkblue dark:text-lightblue font-semibold">
@@ -26,9 +26,15 @@ const LandingPage = () => {
         <LandingButton />
       </div>
       <div
-        className="bg-landingContainer bg-cover fixed bottom-0 right-40 w-[494px] h-[812px] rounded-tl-xl rounded-tr-xl"
+        className="block lg:flex w-[294px] h-[512px] fixed bottom-0 right-40   rounded-tl-xl rounded-tr-xl"
         aria-label="imagem ilustrativa da página inicial"
-      ></div>
+      >
+        <img
+          src="assets/landingContainerImage.jpg"
+          alt=""
+          className="hidden md:flex bottom-0 h-full w-full rounded-tl-xl rounded-tr-xl"
+        />
+      </div>
     </section>
   );
 };

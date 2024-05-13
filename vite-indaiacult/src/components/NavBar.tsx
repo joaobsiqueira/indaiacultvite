@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import { useUser } from "../userContext";
+import UserPicture from "./UserPicture";
 
 const NavBar = () => {
   const { user, artist } = useUser();
@@ -17,6 +18,7 @@ const NavBar = () => {
           <Nav />
         </div>
         {user?.name}
+        <UserPicture />
       </aside>
     </>
   );

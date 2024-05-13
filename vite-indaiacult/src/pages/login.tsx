@@ -4,7 +4,6 @@ import { useState } from "react";
 import { FaInstagram, FaFacebook, FaGoogle } from "react-icons/fa";
 import "../css/login.css";
 import { MdOutlineAlternateEmail, MdOutlineLock } from "react-icons/md";
-import { IoLockClosedOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import LandingNav from "../components/LandingNav";
 
@@ -45,9 +44,9 @@ const Login: React.FC = () => {
           <li className="dark:bg-lightblue" />
         </ul>
       </div>
-      <section className="mt-20 flex flex-col items-center justify-center">
-        <div className="rounded-xl z-10 relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-32 py-16 flex flex-col items-center gap-8">
-          <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
+      <section className="flex flex-col h-screen items-center justify-center">
+        <div className="h-full rounded-xl z-10 relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-16 py-8 md:px-28 md:py-12 flex flex-col items-center gap-2 md:gap-8">
+          <h1 className="font-semibold font-montserrat text-xl md:text-3xl">
             Bem vindo ao <span className="text-main  font-bold">Indaia</span>
             <span className="text-darkblue dark:text-lightblue  font-bold">
               Cult.
@@ -56,12 +55,12 @@ const Login: React.FC = () => {
 
           <form
             onSubmit={handleLogin}
-            className="flex flex-col gap-6 text-xl w-full"
+            className="flex flex-col gap-2 text-xl w-full"
           >
             <label htmlFor="">
               <span className="font-montserrat">E-mail</span>
-              <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
-                <MdOutlineAlternateEmail className="text-darkblue dark:text-lightblue text-2xl" />
+              <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-2 rounded-lg">
+                <MdOutlineAlternateEmail className="text-darkblue dark:text-lightblue text-xl" />
                 <input
                   type="text"
                   placeholder="Insira seu e-mail"
@@ -72,7 +71,7 @@ const Login: React.FC = () => {
             <label htmlFor="">
               <span className="font-montserrat">Senha</span>
               <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
-                <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
+                <MdOutlineLock className="text-darkblue dark:text-lightblue text-xl" />
                 <input
                   type="text"
                   placeholder="Insira sua senha"
@@ -88,23 +87,31 @@ const Login: React.FC = () => {
               Entrar
             </button>
           </form>
-          <div className="flex items-center gap-4">
-            <span className="text-3xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
+          <div className="flex items-center gap-6">
+            <span className="text-xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
               <FaInstagram />
             </span>
-            <span className="text-3xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
+            <span className="text-xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
               <FaFacebook />
             </span>
-            <span className="text-3xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
+            <span className="text-2xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
               <FaGoogle />
             </span>
           </div>
-          <Link to="" className="text-xl underline">
-            Esqueceu a senha?
-          </Link>
-          <Link to="/cadastro" className="text-xl underline">
-            Não possui uma conta?
-          </Link>
+          <div className="flex justify-between items-center w-full">
+            <span>
+              {" "}
+              <Link to="" className="text-xl underline">
+                Esqueceu a senha?
+              </Link>
+            </span>
+            <span>
+              {" "}
+              <Link to="/cadastro" className="text-xl underline">
+                Não possui uma conta?
+              </Link>
+            </span>
+          </div>
         </div>
       </section>
     </>
