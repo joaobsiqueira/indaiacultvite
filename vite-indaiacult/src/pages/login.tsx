@@ -19,7 +19,7 @@ const Login: React.FC = () => {
         email,
         password,
       });
-      const token = response.data.token;
+      //const token = response.data.token;
 
       localStorage.setItem("token", token);
     } catch (error) {

@@ -5,6 +5,7 @@ import "../App.css";
 
 const LandingPage = () => {
   const { darkMode } = useTheme();
+
   return (
     <section className="backgroundLanding flex-row bg-cover h-screen">
       <LandingNav />
@@ -12,10 +13,10 @@ const LandingPage = () => {
       <div className="flex flex-col py-36 gap-12 p-5">
         <p className="font-montserrat dark:text-white text-start font-medium text-4xl md:text-5xl">
           Conheça a <span className="text-main font-semibold">cultura</span> e
-          os artistas <br /> de{" "}
+          os artistas <br /> de
           <span className="text-darkblue dark:text-lightblue font-semibold">
             Indaiatuba
-          </span>{" "}
+          </span>
           <span>com Indaiacult!</span>
         </p>
         <h3 className="font-montserrat text-start dark:text-white text-xl md:text-3xl justify-center">
