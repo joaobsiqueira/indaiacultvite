@@ -8,6 +8,8 @@ import LandingNav from "../components/LandingNav";
 import { useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
 
+//só pra comitar
+
 const SignUp: React.FC = () => {
   const [name, setName] = useState("");
   const [telephone, setTelephone] = useState("");
