@@ -13,12 +13,18 @@ const SignUp: React.FC = () => {
   const [telephone, setTelephone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [succesMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (event: React.FormEvent) => {
+    event.preventDefault();
     try {
+      if (password !== confirmPassword) {
+        setError("As senhas não coincidem");
+        return;
+      }
       const response = await axios.post("http://localhost:5173/cadastro", {
         name,
         email,
@@ -30,6 +36,7 @@ const SignUp: React.FC = () => {
       setTelephone("");
       setEmail("");
       setPassword("");
+      setConfirmPassword("");
       setSuccessMessage("Cadastro realizado com sucesso");
       navigate("/login");
     } catch (error) {
@@ -79,7 +86,9 @@ const SignUp: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Insira seu nome"
-                  className="font-montserrat bg-transparent "
+                  className="font-montserrat bg-transparent"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
             </label>
@@ -91,6 +100,8 @@ const SignUp: React.FC = () => {
                   type="text"
                   placeholder="Insira seu e-mail"
                   className="font-montserrat bg-transparent "
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </label>
@@ -102,6 +113,8 @@ const SignUp: React.FC = () => {
                   type="text"
                   placeholder="Crie sua senha"
                   className="font-montserrat bg-transparent "
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </label>
@@ -113,6 +126,8 @@ const SignUp: React.FC = () => {
                   type="text"
                   placeholder="Confirme sua senha"
                   className="font-montserrat bg-transparent "
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
             </label>

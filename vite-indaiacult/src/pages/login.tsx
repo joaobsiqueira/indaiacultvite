@@ -12,12 +12,16 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
+  const handleLogin = async (event: React.FormEvent) => {
+    event.preventDefault();
     try {
       await axios.post("http://localhost:5173/login", {
         email,
         password,
       });
+      const token = response.data.token;
+
+      localStorage.setItem("token", token);
     } catch (error) {
       setError("Credenciais inválidas");
     }
@@ -65,6 +69,8 @@ const Login: React.FC = () => {
                   type="text"
                   placeholder="Insira seu e-mail"
                   className="font-montserrat bg-transparent "
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </label>
@@ -76,6 +82,8 @@ const Login: React.FC = () => {
                   type="text"
                   placeholder="Insira sua senha"
                   className="font-montserrat bg-transparent "
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </label>
@@ -86,6 +94,7 @@ const Login: React.FC = () => {
             >
               Entrar
             </button>
+            {error && <div>{error}</div>}
           </form>
           <div className="flex items-center gap-6">
             <span className="text-xl text-darkblue dark:text-lightblue p-2 rounded-full border-2 border-darkblue dark:border-lightblue">
