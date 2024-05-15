@@ -7,8 +7,11 @@ import { Link } from "react-router-dom";
 import LandingNav from "../components/LandingNav";
 import { useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
+import { SignUpUser } from "../services/SignUpService";
+import { useUser } from "../userContext";
 
 const SignUp: React.FC = () => {
+  const { keepLoggedIn } = useUser();
   const [name, setName] = useState("");
   const [telephone, setTelephone] = useState("");
   const [email, setEmail] = useState("");
@@ -25,20 +28,19 @@ const SignUp: React.FC = () => {
         setError("As senhas não coincidem");
         return;
       }
-      const response = await axios.post("http://localhost:5173/cadastro", {
-        name,
-        email,
-        telephone,
-        password,
-      });
-      console.log(response.data);
+      const error = await SignUpUser(name, email, password);
+      if (error) {
+        return setError(error);
+      }
+
       setName("");
       setTelephone("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
       setSuccessMessage("Cadastro realizado com sucesso");
-      navigate("/login");
+      keepLoggedIn();
+      navigate("/artists");
     } catch (error) {
       setError("erro ao cadastrar usuário");
       console.error(error);

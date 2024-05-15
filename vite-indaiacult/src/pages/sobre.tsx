@@ -13,7 +13,9 @@ const SobrePage = () => {
           Conheça mais sobre a história da nossa cidade. Aqui você irá encontrar
           fatos sobre os locais mais famosos da região.
         </p>
-        <SobreCard />
+        <div className="p-6 ">
+          <SobreCard />
+        </div>
       </div>
     </section>
   );

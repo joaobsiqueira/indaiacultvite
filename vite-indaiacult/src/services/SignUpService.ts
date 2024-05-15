@@ -5,15 +5,13 @@ import { User } from "../userContext";
 export const SignUpUser = async (
   name: string,
   email: string,
-  password: string,
-  confirmPassword: string
+  password: string
 ) => {
   try {
-    const res = await server.post("/registrar", {
+    const res = await server.post("/registrarUsuario", {
       name,
       email,
       password,
-      confirmPassword,
     });
     const user: User = {
       id: res.data.id,
@@ -22,5 +20,9 @@ export const SignUpUser = async (
       name: res.data.name,
       token: res.data.token,
     };
-  } catch {}
+    window.localStorage.removeItem("artist");
+    window.localStorage.setItem("user", JSON.stringify(user as User));
+  } catch (error: any) {
+    return error.message;
+  }
 };
