@@ -12,6 +12,7 @@ import SobrePage from "./pages/sobre.tsx";
 import LandingPage from "./pages/landing.tsx";
 import { ThemeProvider } from "./context.tsx";
 import ArtistDetailstPage from "./pages/atistsdetail.jsx";
+import SobreDetailPage from "./pages/sobredetail.tsx";
 import { UserProvider } from "./userContext.tsx";
 import PrivateRoute from "./privateRoute.tsx";
 import CreateArtist from "./pages/createartist.tsx";
@@ -28,6 +29,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Layout>
                   <PrivateRoute element={<ArtistasPage />} path="/artists" />
                   <PrivateRoute element={<ObrasPage />} path="/obras" />
+                  <PrivateRoute
+                    element={<SobreDetailPage />}
+                    path="/sobre:id"
+                  />
                   <PrivateRoute
                     element={<ArtistDetailstPage />}
                     path="/artist/:id"

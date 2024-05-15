@@ -6,8 +6,11 @@ import "../css/login.css";
 import { MdOutlineAlternateEmail, MdOutlineLock } from "react-icons/md";
 import { Link } from "react-router-dom";
 import LandingNav from "../components/LandingNav";
+import { LoginUser } from "../services/LoginService";
+import { useUser } from "../userContext";
 
 const Login: React.FC = () => {
+  const { keepLoggedIn } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,15 +18,13 @@ const Login: React.FC = () => {
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:5173/login", {
-        email,
-        password,
-      });
-      //const token = response.data.token;
-
-      localStorage.setItem("token", token);
+      const error = await LoginUser(email, password);
+      if (error) {
+        setError(error);
+      }
+      keepLoggedIn();
     } catch (error) {
-      setError("Credenciais inválidas");
+      console.log("peguei", error);
     }
   };
 
