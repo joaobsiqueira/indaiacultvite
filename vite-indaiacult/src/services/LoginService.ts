@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { server } from "../server";
-import { User } from "../userContext";
+import { Usuario } from "../interfaces/UserInterface";
 
 export const LoginUser = async (email: string, password: string) => {
   try {
@@ -8,15 +8,15 @@ export const LoginUser = async (email: string, password: string) => {
       email,
       password,
     });
-    const user: User = {
-      id: res.data.id,
+    const user: Usuario = {
+      _id: res.data.id,
       email: res.data.email,
-      img: res.data.img,
-      name: res.data.name,
+      imagem: res.data.img,
+      nome: res.data.name,
       token: res.data.token,
     };
     window.localStorage.removeItem("artist");
-    window.localStorage.setItem("user", JSON.stringify(user as User));
+    window.localStorage.setItem("user", JSON.stringify(user as Usuario));
   } catch (error: any) {
     return error.message;
   }

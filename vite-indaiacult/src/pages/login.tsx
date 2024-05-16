@@ -8,12 +8,14 @@ import { Link } from "react-router-dom";
 import LandingNav from "../components/LandingNav";
 import { LoginUser } from "../services/LoginService";
 import { useUser } from "../userContext";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const { keepLoggedIn } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,6 +25,7 @@ const Login: React.FC = () => {
         setError(error);
       }
       keepLoggedIn();
+      navigate("/artists");
     } catch (error) {
       console.log("peguei", error);
     }

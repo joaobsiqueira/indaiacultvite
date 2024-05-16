@@ -5,25 +5,12 @@ import React, {
   useEffect,
   useState,
 } from "react";
-
-export interface User {
-  id: string;
-  name: string;
-  img: string;
-  email: string;
-  token: string;
-}
-
-interface Artist extends User {
-  genre: string;
-  description: string;
-  image: string;
-  banner: string;
-}
+import { Usuario } from "./interfaces/UserInterface";
+import { Artista } from "./interfaces/ArtistInterface";
 
 interface UserContextType {
-  user: User | null;
-  artist: Artist | null;
+  usuario: Usuario | null;
+  artista: Artista | null;
   isLoggedIn: boolean | null;
   keepLoggedIn: () => void;
 }
@@ -31,8 +18,8 @@ interface UserContextType {
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [artist, setArtist] = useState<Artist | null>(null);
+  const [usuario, setUsuario] = useState<Usuario | null>(null);
+  const [artista, setArtista] = useState<Artista | null>(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
@@ -41,7 +28,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const storedArtist = localStorage.getItem("artist");
 
     if (storedUser) {
-      const parsed = JSON.parse(storedUser) as User;
+      const parsed = JSON.parse(storedUser) as Usuario;
       const isValidToken: boolean =
         parsed.token ==
         document.cookie
@@ -50,11 +37,11 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
           ?.split("=")[1];
       console.log(isValidToken);
       if (isValidToken) {
-        setUser(parsed);
+        setUsuario(parsed);
         setIsLoggedIn(true);
       }
     } else if (storedArtist) {
-      const parsed = JSON.parse(storedArtist) as Artist;
+      const parsed = JSON.parse(storedArtist) as Artista;
       const isValidToken: boolean =
         parsed.token ===
         document.cookie
@@ -62,7 +49,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
           .find((row) => row.trim().startsWith("jwt="))
           ?.split("=")[1];
       if (isValidToken) {
-        setArtist(parsed);
+        setArtista(parsed);
         setIsLoggedIn(true);
       }
     }
@@ -73,7 +60,9 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ isLoggedIn, user, artist, keepLoggedIn }}>
+    <UserContext.Provider
+      value={{ isLoggedIn, usuario, artista, keepLoggedIn }}
+    >
       {children}
     </UserContext.Provider>
   );
