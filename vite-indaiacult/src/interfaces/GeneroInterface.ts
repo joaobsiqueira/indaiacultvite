@@ -1,4 +1,4 @@
-export interface Genero {
+export interface genero {
   Pintura: string;
   Musica: string;
   Escultura: string;

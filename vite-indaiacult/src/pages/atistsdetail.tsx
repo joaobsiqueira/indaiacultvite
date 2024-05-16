@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { artists } from "../mock";
 import { Artista } from "../interfaces/ArtistInterface";
-import { LuPencil } from "react-icons/lu";
-import Section from "../components/Section";
+import { LuPencil } from "react-icons/lu"; //adicionar icone para editar foto
 
 const ArtistDetailstPage = () => {
   const { id } = useParams();

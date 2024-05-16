@@ -110,11 +110,10 @@ const SignUp: React.FC = () => {
             <label htmlFor="">
               <div>
                 <select name="" id="">
-                  <option value="Pintor"></option>
-                  <option value="Músico"></option>
-                  <option value="Pintor"></option>
-                  <option value="Pintor"></option>
-                  <option value="Pintor"></option>
+                  <option value="Música"></option>
+                  <option value="Escultura"></option>
+                  <option value="Dança"></option>
+                  <option value="Poesia"></option>
                 </select>
               </div>
             </label>
