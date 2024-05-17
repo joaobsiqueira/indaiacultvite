@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import { useUser } from "../userContext";
 import UserPicture from "./UserPicture";
+import ProfileButton from "./ProfileButton";
 
 const NavBar = () => {
-  const { user, artist } = useUser();
+  const { usuario, artista } = useUser();
   return (
     <>
       <aside className="sticky h-full hidden lg:flex flex-col justify-between gap-5 p-8 border-r-4 border-solid dark:border-highlightDark">
@@ -17,8 +18,8 @@ const NavBar = () => {
           </Link>
           <Nav />
         </div>
-        {user?.name}
-        <UserPicture />
+        {usuario?.nome}
+        <ProfileButton />
       </aside>
     </>
   );
