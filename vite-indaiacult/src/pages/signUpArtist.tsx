@@ -9,8 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
 import { SignUpUser } from "../services/SignUpService";
 import { useUser } from "../userContext";
+import { genero } from "../interfaces/GeneroInterface";
 
-const SignUp: React.FC = () => {
+const SignUpArtist: React.FC = () => {
   const { keepLoggedIn } = useUser();
   const [name, setName] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -108,12 +109,17 @@ const SignUp: React.FC = () => {
               </div>
             </label>
             <label htmlFor="">
-              <div>
-                <select name="" id="">
-                  <option value="Música"></option>
-                  <option value="Escultura"></option>
-                  <option value="Dança"></option>
-                  <option value="Poesia"></option>
+              Que tipo de arte você produz?
+              <div className="p-3">
+                <select
+                  id=""
+                  className="py-2 px-3 text-black border-2 border-darkblue dark:border-lightblue rounded-lg"
+                >
+                  <option value="">Escolha uma opção</option>
+                  <option value="">Música</option>
+                  <option value="Escultura">Escultura</option>
+                  <option value="Dança">Dança</option>
+                  <option value="Poesia">Poesia</option>
                 </select>
               </div>
             </label>
@@ -151,7 +157,7 @@ const SignUp: React.FC = () => {
               Cadastrar-se
             </button>
           </form>
-          <Link to="/login" className="text-xl underline">
+          <Link to="/signUpArtist" className="text-xl underline">
             Já possui uma conta?
           </Link>
         </div>
@@ -160,4 +166,4 @@ const SignUp: React.FC = () => {
   );
 };
 
-export default SignUp;
+export default SignUpArtist;

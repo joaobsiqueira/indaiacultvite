@@ -1,4 +1,4 @@
-export interface Artista {
+export interface artista {
   _id: string;
   redesSociais: string[];
   nome: string;

@@ -1,7 +1,7 @@
 export interface genero {
-  Pintura: string;
-  Musica: string;
-  Escultura: string;
-  Danca: string;
-  Poesia: string;
+  pintura: string;
+  musica: string;
+  escultura: string;
+  danca: string;
+  poesia: string;
 }

@@ -101,7 +101,7 @@ const SignUp: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Insira seu e-mail"
-                  className="font-montserrat bg-transparent "
+                  className="font-montserrat bg-transparent"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -112,7 +112,7 @@ const SignUp: React.FC = () => {
               <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
                 <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Crie sua senha"
                   className="font-montserrat bg-transparent "
                   value={password}
@@ -125,7 +125,7 @@ const SignUp: React.FC = () => {
               <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
                 <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Confirme sua senha"
                   className="font-montserrat bg-transparent "
                   value={confirmPassword}
@@ -144,7 +144,7 @@ const SignUp: React.FC = () => {
           <Link to="/login" className="text-xl underline">
             Já possui uma conta?
           </Link>
-          <Link to="/login" className="text-xl underline">
+          <Link to="/signUpArtist" className="text-xl underline">
             Você é artista? Cadastre-se
           </Link>
         </div>

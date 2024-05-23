@@ -18,6 +18,8 @@ import PrivateRoute from "./privateRoute.tsx";
 import CreateArtist from "./pages/createartist.tsx";
 import InfoAdicionaisPage from "./pages/infoadicionais.tsx";
 
+import SignUpArtist from "./pages/signUpArtist.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -42,6 +44,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               }
             />
             <Route element={<CreateArtist />} path="/create" />
+            <Route element={<SignUpArtist />} path="/cadastro-artista" />
             <Route element={<SobrePage />} path="/sobre" />
             <Route element={<LandingPage />} path="/" />
             <Route element={<LoginPage />} path="/login" />

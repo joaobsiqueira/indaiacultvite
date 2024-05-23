@@ -1,7 +1,9 @@
 import LandingNav from "../components/LandingNav";
 import { MdOutlineAlternateEmail, MdOutlineLock } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import AddSocialMedialButton from "../components/AddSocialMedialButton";
+
+import SocialLinks from "../components/SocialLinks";
+import { Link } from "react-router-dom";
 
 const InfoAdicionaisPage = () => {
   return (
@@ -19,31 +21,8 @@ const InfoAdicionaisPage = () => {
         </div>
         <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
           <form className="flex flex-col gap-6 text-xl w-full">
-            <label htmlFor="">
-              <span className="font-montserrat dark:text-white">
-                Redes sociais
-              </span>
-              <div className="flex gap-4">
-                <div className="flex flex-row items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
-                  <FaInstagram className="text-darkblue dark:text-lightblue text-2xl" />
-                  <input
-                    type="text"
-                    placeholder="Insira o link"
-                    className="font-montserrat bg-transparent "
-                  />
-                </div>
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
-                  <FaFacebook className="text-darkblue dark:text-lightblue text-2xl" />
-                  <input
-                    type="text"
-                    placeholder="Insira o link"
-                    className="font-montserrat bg-transparent"
-                  />
-                </div>
-              </div>
-            </label>
             <div className="">
-              <AddSocialMedialButton />
+              <SocialLinks />
             </div>
 
             <label htmlFor="">

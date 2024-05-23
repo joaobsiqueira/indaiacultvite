@@ -83,7 +83,7 @@ const Login: React.FC = () => {
               <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
                 <MdOutlineLock className="text-darkblue dark:text-lightblue text-xl" />
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Insira sua senha"
                   className="font-montserrat bg-transparent "
                   value={password}
