@@ -52,9 +52,9 @@ const Login: React.FC = () => {
           <li className="dark:bg-lightblue" />
         </ul>
       </div>
-      <section className="flex flex-col h-screen items-center justify-center">
-        <div className="h-full rounded-xl z-10 relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-16 py-8 md:px-28 md:py-12 flex flex-col items-center gap-2 md:gap-8">
-          <h1 className="font-semibold font-montserrat text-xl md:text-3xl">
+      <section className="flex flex-col items-center justify-center">
+        <div className="h-full gap-8 rounded-xl relative z-10 bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-16 py-8 md:px-20 flex flex-col items-center">
+          <h1 className="font-semibold font-montserrat text-2xl md:text-4xl 3xl:text-4xl">
             Bem vindo ao <span className="text-main  font-bold">Indaia</span>
             <span className="text-darkblue dark:text-lightblue  font-bold">
               Cult.
@@ -63,7 +63,7 @@ const Login: React.FC = () => {
 
           <form
             onSubmit={handleLogin}
-            className="flex flex-col gap-2 text-xl w-full"
+            className="flex flex-col text-xl w-full gap-4 md:gap-8 3xl:gap-12"
           >
             <label htmlFor="">
               <span className="font-montserrat">E-mail</span>
@@ -111,19 +111,15 @@ const Login: React.FC = () => {
               <FaGoogle />
             </span>
           </div>
-          <div className="flex justify-between items-center w-full">
-            <span>
-              {" "}
-              <Link to="" className="text-xl underline">
-                Esqueceu a senha?
-              </Link>
-            </span>
-            <span>
-              {" "}
-              <Link to="/cadastro" className="text-xl underline">
-                Não possui uma conta?
-              </Link>
-            </span>
+
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <Link to="" className="text-xl underline">
+              Esqueceu a senha?
+            </Link>
+
+            <Link to="/cadastro" className="text-xl underline">
+              Não possui uma conta?
+            </Link>
           </div>
         </div>
       </section>

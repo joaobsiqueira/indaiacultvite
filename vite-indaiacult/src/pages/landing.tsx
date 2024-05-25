@@ -4,30 +4,27 @@ import LandingNav from "../components/LandingNav";
 import "../App.css";
 
 const LandingPage = () => {
-  const { darkMode } = useTheme();
-
   return (
     <section className="backgroundLanding flex-row bg-cover h-screen">
       <LandingNav />
 
       <div className="flex flex-col py-36 gap-12 p-5">
-        <p className="font-montserrat dark:text-white text-start font-medium text-4xl md:text-5xl">
+        <p className="font-montserrat dark:text-white text-start font-semibold text-4xl md:text-5xl 3xl:text-7xl">
           Conheça a <span className="text-main font-semibold">cultura</span> e
-          os artistas <br /> de
+          os artistas <br /> de {""}
           <span className="text-darkblue dark:text-lightblue font-semibold">
             Indaiatuba
           </span>
-          <span>com Indaiacult!</span>
+          <span> com Indaiacult!</span>
         </p>
-        <h3 className="font-montserrat text-start dark:text-white text-xl md:text-3xl justify-center">
+        <h3 className="font-montserrat text-start dark:text-white text-xl md:text-3xl 3xl:text-4xl justify-center">
           Conheça artistas locais e veja suas obras, o IndaiaCult <br /> é uma
           roda cultural a poucos cliques de distância
         </h3>
-        <p></p>
         <LandingButton />
       </div>
       <div
-        className="block lg:flex w-[294px] h-[512px] fixed bottom-0 right-40   rounded-tl-xl rounded-tr-xl"
+        className="block lg:flex md:w-[294px] md:h-[512px] 3xl:w-[394px] 3xl:h-[732px] fixed bottom-0 right-40 rounded-tl-xl rounded-tr-xl"
         aria-label="imagem ilustrativa da página inicial"
       >
         <img

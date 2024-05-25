@@ -69,7 +69,7 @@ const SignUp: React.FC = () => {
         </ul>
       </div>
       <section className="mt-6 flex flex-col items-center justify-center">
-        <div className="rounded-xl  relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-32 py-16 flex flex-col items-center gap-8">
+        <div className="h-full p-8 rounded-xl relative z-10 bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-16 py-8 md:px-20 flex flex-col items-center gap-2 md:gap-8">
           <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
             Bem vindo ao <span className="text-main  font-bold">Indaia</span>
             <span className="text-darkblue dark:text-lightblue  font-bold">
@@ -141,12 +141,14 @@ const SignUp: React.FC = () => {
               Cadastrar-se
             </button>
           </form>
-          <Link to="/login" className="text-xl underline">
-            Já possui uma conta?
-          </Link>
-          <Link to="/signUpArtist" className="text-xl underline">
-            Você é artista? Cadastre-se
-          </Link>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <Link to="/login" className="text-xl underline">
+              Já possui uma conta?
+            </Link>
+            <Link to="/signUpArtist" className="text-xl underline">
+              Você é artista? Cadastre-se
+            </Link>
+          </div>
         </div>
       </section>
     </>
