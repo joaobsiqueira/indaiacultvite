@@ -13,7 +13,7 @@ const SobrePage = () => {
           Conheça mais sobre a história da nossa cidade. Aqui você irá encontrar
           fatos sobre os locais mais famosos da região.
         </p>
-        <div className="flex flex-row gap-12 p-6">
+        <div className="flex flex-col gap-12 p-6">
           {sobre.map((sobre) => (
             <SobreCard sobre={sobre} key={sobre._id} />
           ))}

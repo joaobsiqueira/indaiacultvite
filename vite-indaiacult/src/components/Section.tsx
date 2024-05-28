@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import SearchBar from "./SearchBar";
 
 interface Props {
   title: string;
@@ -22,7 +21,6 @@ const Section = ({ title, description, searchFn, children }: Props) => {
               {description}
             </p>
           </div>
-          <SearchBar />
         </div>
       </div>
       {children}

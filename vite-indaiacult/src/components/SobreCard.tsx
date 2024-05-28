@@ -1,23 +1,36 @@
 import React from "react";
 import { Sobre } from "../interfaces/SobreInterface";
+import { Link } from "react-router-dom";
 
 const SobreCard: React.FC<{
   sobre: Sobre;
 }> = ({ sobre }) => {
   return (
-    <section>
-      <div className="flex flex-col gap-4 border-4  border-highlight dark:border-highlightDark p-5 rounded-lg">
-        <h1 className="text-2xl md:text-4xl 3xl:text-5xl dark:text-white font-bold font-montserrat">
-          {sobre.titulo}
-        </h1>
+    <div className="flex flex-col lg:flex-row bg-white dark:bg-diffBlack rounded-xl border-4 p-4 border-highlight dark:border-highlightDark gap-4">
+      <img
+        src={sobre.imagem}
+        alt="foto da obra"
+        className="w-full h-64 rounded-xl"
+      />
+      <div className="flex w-full flex-col justify-between gap-4">
+        <div>
+          <h1 className="font-semibold text-2xl capitalize line-clamp-1">
+            {sobre.titulo}
+          </h1>
+        </div>
+        <div>
+          <p className="text-black/75 text-xl h-14 line-clamp-2 dark:text-white/75">
+            {sobre.descricao}
+          </p>
+        </div>
 
-        <img
-          src={sobre.imagem}
-          className="w-full h-56 rounded-lg"
-          alt={`Imagem de ${sobre.titulo}`}
-        />
+        <Link to="/sobre/:id">
+          <button className="w-full text-lg bg-darkblue hover:bg-lightblue text-white dark:bg-lightblue dark:hover:bg-darkblue py-2 rounded-lg font-semibold">
+            <h2>Ver mais</h2>
+          </button>
+        </Link>
       </div>
-    </section>
+    </div>
   );
 };
 

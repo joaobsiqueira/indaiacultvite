@@ -6,7 +6,7 @@ export interface artista {
   email: string;
   avaliacao: number;
   qtdAvaliacao: number;
-  genero: string; ///criar interface
+  genero: string;
   descricao: string;
   banner: string;
   token: string;
