@@ -68,7 +68,7 @@ const SignUp: React.FC = () => {
           <li className="dark:bg-lightblue" />
         </ul>
       </div>
-      <section className="mt-6 flex flex-col items-center justify-center">
+      <section className="mt-6 flex flex-col items-center justify-center ">
         <div className="h-full p-8 rounded-xl relative z-10 bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-16 py-8 md:px-20 flex flex-col items-center gap-2 md:gap-8">
           <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
             Bem vindo ao <span className="text-main  font-bold">Indaia</span>

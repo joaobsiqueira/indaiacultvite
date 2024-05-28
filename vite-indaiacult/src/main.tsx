@@ -17,8 +17,8 @@ import { UserProvider } from "./userContext.tsx";
 import PrivateRoute from "./privateRoute.tsx";
 import CreateArtist from "./pages/createartist.tsx";
 import InfoAdicionaisPage from "./pages/infoadicionais.tsx";
-
 import SignUpArtist from "./pages/signUpArtist.tsx";
+import ObrasDetailsPage from "./pages/obradetails.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -39,6 +39,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <PrivateRoute
                     element={<ArtistDetailstPage />}
                     path="/artist/:id"
+                  />
+                  <PrivateRoute
+                    element={<ObrasDetailsPage />}
+                    path="/obra/:id"
                   />
                 </Layout>
               }

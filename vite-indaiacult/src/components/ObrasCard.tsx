@@ -1,8 +1,8 @@
-import { Obra } from "../interfaces/ObrasInterface";
+import { Obras } from "../interfaces/ObrasInterface";
 import { Link } from "react-router-dom";
 
 const ObrasCard: React.FC<{
-  obra: Obra;
+  obra: Obras;
 }> = ({ obra }) => {
   return (
     <div className="flex flex-col lg:flex-row bg-white dark:bg-diffBlack rounded-xl border-4 p-4 border-highlight dark:border-highlightDark gap-4">
@@ -36,9 +36,9 @@ const ObrasCard: React.FC<{
             {obra.genero}
           </h3>
         </div>
-        <Link to="/artist/:id">
+        <Link to="/obra/:id">
           <button className="w-full text-lg bg-darkblue text-white dark:bg-lightblue py-2 rounded-lg font-semibold">
-            <h2>Perfil do artista</h2>
+            <h2>Ver mais sobre a Obra</h2>
           </button>
         </Link>
       </div>

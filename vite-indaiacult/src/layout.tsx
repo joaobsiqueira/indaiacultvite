@@ -8,10 +8,10 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="flex dark:text-white gap-12 overflow-hidden h-screen">
+    <div className="flex dark:text-white  overflow-hidden h-screen">
       <NavBar />
 
-      <main className="flex w-full lg:my-8 p-6 lg:p-0 flex-col overflow-y-scroll">
+      <main className="flex w-full lg:my-8 flex-col overflow-y-scroll">
         {children}
       </main>
 

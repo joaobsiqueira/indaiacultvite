@@ -1,4 +1,4 @@
-export interface Obra {
+export interface Obras {
   _id: string;
   titulo: string;
   descricao: string;

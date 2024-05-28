@@ -1,6 +1,6 @@
-import { Obra } from "./interfaces/ObrasInterface";
+import { Obras } from "./interfaces/ObrasInterface";
 
-export const obras: Obra[] = [
+export const obras: Obras[] = [
   {
     _id: "1",
     autor: "José Paulo",
@@ -8,9 +8,9 @@ export const obras: Obra[] = [
     qtdAvaliacoes: 12,
     data: new Date(),
     descricao:
-      "vhigdafyicvbdjyhbcdayivbudfnvuisfbvfvbuozncyuibhlbtuvbuob yk vhigdafyicvbdjyhbcdayivbudfnvuisfbvfvbuozncyuibhlbtuvbuob yk vhigdafyicvbdjyhbcdayivbudfnvuisfbvfvbuozncyuibhlbtuvbuob yk vhigdafyicvbdjyhbcdayivbudfnvuisfbvfvbuozncyuibhlbtuvbuob yk",
+      "Colinas Assombradas é uma obra do artista brasileiro José Paulo, conhecido por seu trabalho que combina elementos de pintura e escultura. A pintura provavelmente faz parte de sua fase mais madura, quando ele começou a explorar profundamente as possibilidades de materiais como a argila e o ferro, integrando a tridimensionalidade às suas criações bidimensionais tradicionais.",
     genero: "Pintura",
-    titulo: "Indaiatuba",
+    titulo: "Colinas Assombradas",
     imagem:
       "https://images.unsplash.com/photo-1716377239833-54b55d732bc8?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imagemArtista:

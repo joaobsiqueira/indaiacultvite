@@ -1,10 +1,10 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Artista } from "../interfaces/ArtistInterface";
+import { artista } from "../interfaces/ArtistInterface";
 import { Link } from "react-router-dom";
 
 const ArtistCard: React.FC<{
-  artista: Artista;
+  artista: artista;
 }> = ({ artista }) => {
   return (
     <div className="flex flex-col w-full rounded-xl mx-auto gap-2 bg-white dark:bg-diffBlack border-4 border-highlight dark:border-highlightDark">

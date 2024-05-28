@@ -9,7 +9,7 @@ const ObrasPage = () => {
       description="Conheça quem alimenta a cultura de Indaiatuba diariamente com seu trabalho"
     >
       {obras.map((obra) => (
-        <ObrasCard obra={obra} key={obra.id} />
+        <ObrasCard obra={obra} key={obra._id} />
       ))}
     </Section>
   );
