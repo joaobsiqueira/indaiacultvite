@@ -7,12 +7,14 @@ import React, {
 } from "react";
 import { Usuario } from "./interfaces/UserInterface";
 import { artista } from "./interfaces/ArtistInterface";
+import { server } from "./server";
 
 interface UserContextType {
   usuario: Usuario | null;
   artista: artista | null;
-  isLoggedIn: boolean | null;
+  isLoggedIn: boolean | undefined;
   keepLoggedIn: () => void;
+  logOut: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -21,7 +23,14 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [artista, setArtista] = useState<artista | null>(null);
 
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | undefined>(undefined);
+
+  const logOut = async () => {
+    await server.get("/artista/logout");
+    window.localStorage.removeItem("user");
+    window.localStorage.removeItem("artist");
+    setIsLoggedIn(false);
+  };
 
   const keepLoggedIn = () => {
     const storedUser = localStorage.getItem("user");
@@ -52,6 +61,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         setArtista(parsed);
         setIsLoggedIn(true);
       }
+    } else {
+      logOut();
     }
   };
 
@@ -61,7 +72,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <UserContext.Provider
-      value={{ isLoggedIn, usuario, artista, keepLoggedIn }}
+      value={{ isLoggedIn, usuario, artista, keepLoggedIn, logOut }}
     >
       {children}
     </UserContext.Provider>

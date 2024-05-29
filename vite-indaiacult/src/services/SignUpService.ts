@@ -1,4 +1,3 @@
-import Password from "antd/es/input/Password";
 import { server } from "../server";
 import { Usuario } from "../interfaces/UserInterface";
 

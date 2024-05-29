@@ -148,14 +148,12 @@ const SignUpArtist: React.FC = () => {
               </div>
             </label>
 
-            <Link to={"/informacoes-adicionais"}>
-              <button
-                type="submit"
-                className="py-2 font-bold w-full rounded-lg bg-darkblue dark:bg-lightblue text-white"
-              >
-                Cadastrar-se
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className="py-2 font-bold w-full rounded-lg bg-darkblue dark:bg-lightblue text-white"
+            >
+              Cadastrar-se
+            </button>
           </form>
           <Link to="/login" className="text-xl underline">
             Já possui uma conta?
