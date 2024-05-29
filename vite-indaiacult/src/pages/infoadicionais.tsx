@@ -1,9 +1,7 @@
 import LandingNav from "../components/LandingNav";
 import { MdOutlineAlternateEmail, MdOutlineLock } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-
 import SocialLinks from "../components/SocialLinks";
-import { Link } from "react-router-dom";
 
 const InfoAdicionaisPage = () => {
   return (

@@ -20,7 +20,7 @@ const SocialLinks = () => {
     setSocialLinks(newLinks);
   };
   return (
-    <form className="">
+    <form className="flex flex-col gap-4">
       <label htmlFor="">
         <span className="font-montserrat dark:text-white">Redes sociais</span>
         <div className="flex gap-4">
@@ -50,7 +50,7 @@ const SocialLinks = () => {
               value={link}
               onChange={(e) => handleInputChange(index, e.target.value)}
               placeholder="Insira o Link da rede social"
-              className="flex-1 px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 "
+              className="flex-1 px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2"
             />
 
             <button

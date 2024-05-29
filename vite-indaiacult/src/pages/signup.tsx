@@ -145,7 +145,7 @@ const SignUp: React.FC = () => {
             <Link to="/login" className="text-xl underline">
               Já possui uma conta?
             </Link>
-            <Link to="/signUpArtist" className="text-xl underline">
+            <Link to="/cadastro-artista" className="text-xl underline">
               Você é artista? Cadastre-se
             </Link>
           </div>

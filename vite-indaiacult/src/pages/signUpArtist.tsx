@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { useState } from "react";
 import "../css/login.css";
 import { MdOutlineAlternateEmail, MdOutlineLock } from "react-icons/md";
@@ -9,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
 import { SignUpUser } from "../services/SignUpService";
 import { useUser } from "../userContext";
-import { genero } from "../interfaces/GeneroInterface";
 
 const SignUpArtist: React.FC = () => {
   const { keepLoggedIn } = useUser();
@@ -69,8 +67,8 @@ const SignUpArtist: React.FC = () => {
           <li className="dark:bg-lightblue" />
         </ul>
       </div>
-      <section className="mt-6 flex flex-col items-center justify-center">
-        <div className="rounded-xl  relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-32 py-16 flex flex-col items-center gap-8">
+      <section className="flex flex-col items-center justify-center">
+        <div className="rounded-xl  relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4  px-20 py-8 flex flex-col items-center gap-8">
           <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
             Bem vindo ao <span className="text-main  font-bold">Indaia</span>
             <span className="text-darkblue dark:text-lightblue  font-bold">
@@ -150,14 +148,16 @@ const SignUpArtist: React.FC = () => {
               </div>
             </label>
 
-            <button
-              type="submit"
-              className="py-2 font-bold rounded-lg bg-darkblue dark:bg-lightblue text-white"
-            >
-              Cadastrar-se
-            </button>
+            <Link to={"/informacoes-adicionais"}>
+              <button
+                type="submit"
+                className="py-2 font-bold w-full rounded-lg bg-darkblue dark:bg-lightblue text-white"
+              >
+                Cadastrar-se
+              </button>
+            </Link>
           </form>
-          <Link to="/signUpArtist" className="text-xl underline">
+          <Link to="/login" className="text-xl underline">
             Já possui uma conta?
           </Link>
         </div>

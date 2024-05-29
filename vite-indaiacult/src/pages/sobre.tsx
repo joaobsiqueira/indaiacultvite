@@ -5,9 +5,9 @@ import { Sobre } from "../interfaces/SobreInterface";
 const SobrePage = () => {
   return (
     <section>
-      <div className="flex items-center flex-col gap-2 justify-center p-4">
+      <div className="flex items-start flex-col gap-2 justify-center p-4">
         <h1 className="text-xl md:text-3xl dark:text-white font-bold font-montserrat">
-          Conheça a história de Indaiatuba
+          Sobre Indaiatuba
         </h1>
         <p className="dark:text-white font-montserrat ">
           Conheça mais sobre a história da nossa cidade. Aqui você irá encontrar

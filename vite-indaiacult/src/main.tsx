@@ -19,7 +19,6 @@ import CreateArtist from "./pages/createartist.tsx";
 import InfoAdicionaisPage from "./pages/infoadicionais.tsx";
 import SignUpArtist from "./pages/signUpArtist.tsx";
 import ObrasDetailsPage from "./pages/obradetails.tsx";
-import path from "path";
 import ProfilePageAdm from "./pages/profilepageadm.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
