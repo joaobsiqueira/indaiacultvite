@@ -16,7 +16,6 @@ import SobreDetailPage from "./pages/sobredetail.tsx";
 import { UserProvider } from "./userContext.tsx";
 import PrivateRoute from "./privateRoute.tsx";
 import CreateArtist from "./pages/createartist.tsx";
-import InfoAdicionaisPage from "./pages/infoadicionais.tsx";
 import SignUpArtist from "./pages/signUpArtist.tsx";
 import ObrasDetailsPage from "./pages/obradetails.tsx";
 import ProfilePageAdm from "./pages/profilepageadm.tsx";
@@ -63,10 +62,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route element={<LandingPage />} path="/" />
             <Route element={<LoginPage />} path="/login" />
             <Route element={<SignUpPage />} path="/cadastro" />
-            <Route
-              element={<InfoAdicionaisPage />}
-              path="/informacoes-adicionais"
-            />
           </Routes>
         </ThemeProvider>
       </UserProvider>

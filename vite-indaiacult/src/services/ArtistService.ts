@@ -22,36 +22,34 @@ export const seeById = async (id: string) => {
 };
 
 export const signUpArtista = async (
-  nome: string,
-  imagem: string,
-  descricao: string,
-  banner: string,
+  name: string,
   email: string,
+  password: string,
+  genre: string,
+  description: string,
   redessociais: string[],
-  genero: string,
-  avaliacao: string,
-  qtdAvaliacao: string
+  image: string,
+  banner: string
 ) => {
   try {
     const res = await server.post("/registrar", {
-      nome,
+      name,
       email,
-      imagem,
-      descricao,
+      image,
+      description,
       banner,
-      genero,
+      genre,
+      password,
       redessociais,
-      avaliacao,
-      qtdAvaliacao,
     });
     const artist: Artista = {
       _id: res.data._id,
-      nome: res.data.nome,
+      nome: res.data.name,
       email: res.data.email,
-      imagem: res.data.imagem,
-      descricao: res.data.descricao,
+      imagem: res.data.image,
+      descricao: res.data.description,
       banner: res.data.banner,
-      genero: res.data.genero,
+      genero: res.data.genre,
       redessociais: res.data.redessociais,
       avaliacao: res.data.avaliacao,
       qtdAvaliacao: res.data.qtdAvaliacao,
