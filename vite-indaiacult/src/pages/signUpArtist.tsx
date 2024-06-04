@@ -10,20 +10,24 @@ import { SignUpUser } from "../services/SignUpService";
 import { useUser } from "../userContext";
 import { signUpArtista } from "../services/ArtistService";
 import { GoPencil } from "react-icons/go";
+import { storage } from "../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-const SignUpArtist: React.FC = () => {
+const SignUpArtist = () => {
   const { keepLoggedIn } = useUser();
   const [name, setName] = useState("");
   const [genre, setGenre] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState<File | null>(null);
-  const [banner, setBanner] = useState<File | null>(null);
+  const [url, setUrl] = useState("");
+  const [image, setImage] = useState<File | undefined>(undefined);
+  const [banner, setBanner] = useState<File | undefined>(undefined);
+  const [bannerUrl, setBannerUrl] = useState("");
   const [redessociais, setRedessociais] = useState([""]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [succesMessage, setSuccessMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSignUp = async (event: React.FormEvent) => {
@@ -33,6 +37,21 @@ const SignUpArtist: React.FC = () => {
         setError("As senhas não coincidem");
         return;
       }
+
+      if (image) {
+        const imageRef = ref(storage, "image");
+        await uploadBytes(imageRef, image);
+        const downloadUrl = await getDownloadURL(imageRef);
+        setUrl(downloadUrl);
+      }
+
+      if (banner) {
+        const bannerRef = ref(storage, "banner");
+        await uploadBytes(bannerRef, banner);
+        const downloadUrl = await getDownloadURL(bannerRef);
+        setBannerUrl(downloadUrl);
+      }
+
       const error = await signUpArtista(
         name,
         email,
@@ -40,12 +59,13 @@ const SignUpArtist: React.FC = () => {
         genre,
         description,
         redessociais,
-        image,
-        //montar imageURL
-        banner
+        url,
+        bannerUrl
       );
+
       if (error) {
-        return setError(error);
+        setError(error);
+        return;
       }
 
       setName("");
@@ -57,8 +77,8 @@ const SignUpArtist: React.FC = () => {
       keepLoggedIn();
       navigate("/artists");
     } catch (error) {
-      setError("erro ao cadastrar usuário");
       console.error(error);
+      setError("Ocorreu um erro durante o cadastro");
     }
   };
 
@@ -85,10 +105,10 @@ const SignUpArtist: React.FC = () => {
       </div>
       <div className="flex gap-32 justify-center">
         <section className="flex flex-col items-center justify-center">
-          <div className="rounded-xl  relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4  px-20 py-8 flex flex-col items-center gap-8">
+          <div className="rounded-xl relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-20 py-8 flex flex-col items-center gap-8">
             <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
-              Bem vindo ao <span className="text-main  font-bold">Indaia</span>
-              <span className="text-darkblue dark:text-lightblue  font-bold">
+              Bem vindo ao <span className="text-main font-bold">Indaia</span>
+              <span className="text-darkblue dark:text-lightblue font-bold">
                 Cult.
               </span>
             </h1>
@@ -97,7 +117,7 @@ const SignUpArtist: React.FC = () => {
               onSubmit={handleSignUp}
               className="flex flex-col gap-6 text-xl w-full"
             >
-              <label htmlFor="">
+              <label>
                 <span className="font-montserrat">Nome</span>
                 <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
                   <FaRegUser className="text-darkblue dark:text-lightblue text-2xl" />
@@ -110,20 +130,20 @@ const SignUpArtist: React.FC = () => {
                   />
                 </div>
               </label>
-              <label htmlFor="">
+              <label>
                 <span className="font-montserrat">E-mail</span>
                 <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
                   <MdOutlineAlternateEmail className="text-darkblue dark:text-lightblue text-2xl" />
                   <input
                     type="text"
                     placeholder="Insira seu e-mail"
-                    className="font-montserrat bg-transparent "
+                    className="font-montserrat bg-transparent"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </label>
-              <label htmlFor="">
+              <label>
                 Que tipo de arte você produz?
                 <div className="p-3">
                   <select
@@ -132,34 +152,34 @@ const SignUpArtist: React.FC = () => {
                     className="py-2 px-3 text-black border-2 border-darkblue dark:border-lightblue rounded-lg"
                   >
                     <option value="">Escolha uma opção</option>
-                    <option value={"Música"}>Música</option>
-                    <option value={"Escultura"}>Escultura</option>
-                    <option value={"Dança"}>Dança</option>
-                    <option value={"Poesia"}>Poesia</option>
+                    <option value="Música">Música</option>
+                    <option value="Escultura">Escultura</option>
+                    <option value="Dança">Dança</option>
+                    <option value="Poesia">Poesia</option>
                   </select>
                 </div>
               </label>
-              <label htmlFor="">
+              <label>
                 <span className="font-montserrat">Senha</span>
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
+                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
                   <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Crie sua senha"
-                    className="font-montserrat bg-transparent "
+                    className="font-montserrat bg-transparent"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </label>
 
-              <label htmlFor="">
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
+              <label>
+                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
                   <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Confirme sua senha"
-                    className="font-montserrat bg-transparent "
+                    className="font-montserrat bg-transparent"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
@@ -179,14 +199,11 @@ const SignUpArtist: React.FC = () => {
           </div>
         </section>
         <section className="flex flex-col items-center justify-center">
-          <div className="rounded-xl  relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4  px-20 py-8 flex flex-col items-center gap-8">
+          <div className="rounded-xl relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-20 py-8 flex flex-col items-center gap-8">
             <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
               Informações adicionais
             </h1>
-            <form
-              onSubmit={handleSignUp}
-              className="flex flex-col gap-6 text-xl w-full"
-            >
+            <form className="flex flex-col gap-6 text-xl w-full">
               <span>Foto de perfil</span>
               <input
                 type="file"
@@ -234,7 +251,7 @@ const SignUpArtist: React.FC = () => {
                 </label>
               </div>
 
-              <label htmlFor="">
+              <label>
                 Que tipo de arte você produz?
                 <div className="p-3">
                   <select
@@ -243,34 +260,34 @@ const SignUpArtist: React.FC = () => {
                     className="py-2 px-3 text-black border-2 border-darkblue dark:border-lightblue rounded-lg"
                   >
                     <option value="">Escolha uma opção</option>
-                    <option value={"Música"}>Música</option>
-                    <option value={"Escultura"}>Escultura</option>
-                    <option value={"Dança"}>Dança</option>
-                    <option value={"Poesia"}>Poesia</option>
+                    <option value="Música">Música</option>
+                    <option value="Escultura">Escultura</option>
+                    <option value="Dança">Dança</option>
+                    <option value="Poesia">Poesia</option>
                   </select>
                 </div>
               </label>
-              <label htmlFor="">
+              <label>
                 <span className="font-montserrat">Senha</span>
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
+                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
                   <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Crie sua senha"
-                    className="font-montserrat bg-transparent "
+                    className="font-montserrat bg-transparent"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </label>
 
-              <label htmlFor="">
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark  p-3 rounded-lg">
+              <label>
+                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
                   <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Confirme sua senha"
-                    className="font-montserrat bg-transparent "
+                    className="font-montserrat bg-transparent"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />

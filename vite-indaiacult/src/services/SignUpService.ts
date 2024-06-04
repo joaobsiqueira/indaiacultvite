@@ -8,9 +8,9 @@ export const SignUpUser = async (
 ) => {
   try {
     const res = await server.post("/registrarUsuario", {
-      name,
+      nome: name,
       email,
-      password,
+      senha: password,
     });
     const user: Usuario = {
       _id: res.data.id,

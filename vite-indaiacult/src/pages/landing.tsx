@@ -1,5 +1,6 @@
 import LandingButton from "../components/LandingButton";
 import { useTheme } from "../context";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa6";
 import LandingNav from "../components/LandingNav";
 import "../App.css";
 
@@ -21,6 +22,11 @@ const LandingPage = () => {
           Conheça artistas locais e veja suas obras, o IndaiaCult <br /> é uma
           roda cultural a poucos cliques de distância
         </h3>
+        <div className="flex flex-rpw text-darkblue dark:text-lightblue gap-12">
+          <FaFacebook className="w-14 h-14" />
+          <FaInstagram className="w-14 h-14" />
+          <FaTiktok className="w-14 h-14" />
+        </div>
         <LandingButton />
       </div>
       <div

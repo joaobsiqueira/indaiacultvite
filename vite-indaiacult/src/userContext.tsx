@@ -6,12 +6,12 @@ import React, {
   useState,
 } from "react";
 import { Usuario } from "./interfaces/UserInterface";
-import { artista } from "./interfaces/ArtistInterface";
+import { Artista } from "./interfaces/ArtistInterface";
 import { server } from "./server";
 
 interface UserContextType {
   usuario: Usuario | null;
-  artista: artista | null;
+  artista: Artista | null;
   isLoggedIn: boolean | undefined;
   keepLoggedIn: () => void;
   logOut: () => void;
@@ -21,7 +21,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [artista, setArtista] = useState<artista | null>(null);
+  const [artista, setArtista] = useState<Artista | null>(null);
 
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | undefined>(undefined);
 
@@ -50,7 +50,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         setIsLoggedIn(true);
       }
     } else if (storedArtist) {
-      const parsed = JSON.parse(storedArtist) as artista;
+      const parsed = JSON.parse(storedArtist) as Artista;
       const isValidToken: boolean =
         parsed.token ===
         document.cookie
