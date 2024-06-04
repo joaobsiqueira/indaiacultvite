@@ -7,7 +7,7 @@ interface Props {
   children: ReactNode;
 }
 
-const Section = ({ title, description, searchFn, children }: Props) => {
+const Section = ({ title, description, children }: Props) => {
   return (
     <div className="flex flex-col gap-8 p-5">
       <div className="flex flex-col gap-4 justify-center">

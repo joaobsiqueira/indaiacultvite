@@ -2,7 +2,8 @@ import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
 import { storage } from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { artists } from "../mock";
+import { useUser } from "../userContext";
+import { GoPencil } from "react-icons/go";
 
 const UserPicture = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -32,16 +33,36 @@ const UserPicture = () => {
         });
     }
   };
+  const { usuario, artista } = useUser();
 
   return (
     <div>
-      <Avatar alt="" src={url} sx={{ width: 56, height: 56 }} />
       <input
-        className="text-transparent text-xs "
         type="file"
-        onChange={handleImageChange}
+        id="ArtistaImagem"
+        className="hidden"
+        onChange={(e) => {
+          e.target.files && setImage(e.target.files[0]);
+        }}
       />
-      <button onClick={handleSubmit}>Enviar</button>
+      <div className="flex ">
+        <div className="flex items-end -space-x-8">
+          <img
+            src={image ? URL.createObjectURL(image) : "/default.png"}
+            alt=""
+            className="rounded-full border-4 border-darkblue object-cover dark:border-lightblue w-20 h-20"
+          />
+
+          <label
+            htmlFor="ArtistaImagem"
+            className="flex cursor-pointer items-center justify-center rounded-full px-3 py-3 w-max h-max bg-darkblue dark:bg-lightblue"
+          >
+            <GoPencil className="fill-white" />
+          </label>
+        </div>
+        <button onClick={handleSubmit}>Enviar</button>
+      </div>
+      <h1 className="font-semibold text-xl">{usuario?.nome}</h1>
     </div>
   );
 };

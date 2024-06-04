@@ -3,14 +3,14 @@ import { useUser } from "../userContext";
 import { NavigationType, useParams } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { artista } from "../interfaces/ArtistInterface";
+import { Artista } from "../interfaces/ArtistInterface";
 import { seeById } from "../services/ArtistService";
 
 const ProfilePageAdm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [artista, setArtista] = useState<artista | undefined>(undefined);
+  const [artista, setArtista] = useState<Artista | undefined>(undefined);
   useEffect(() => {
     if (!id) {
       return navigate("/artists");

@@ -10,8 +10,8 @@ const ArtistsPage = () => {
       description="Conheça quem alimenta a cultura de Indaiatuba diariamente com seu trabalho"
     >
       <div className="flex flex-col gap-5 ">
-        {artists.map((artista) => (
-          <ArtistCard artista={artista} key={artista._id} />
+        {artists.map((Artista) => (
+          <ArtistCard Artista={Artista} key={Artista._id} />
         ))}
       </div>
     </Section>

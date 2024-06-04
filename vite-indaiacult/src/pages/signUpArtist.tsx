@@ -5,13 +5,14 @@ import { MdOutlineAlternateEmail, MdOutlineLock } from "react-icons/md";
 import { Link } from "react-router-dom";
 import LandingNav from "../components/LandingNav";
 import { useNavigate } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaRegUser } from "react-icons/fa6";
 import { SignUpUser } from "../services/SignUpService";
 import { useUser } from "../userContext";
 import { signUpArtista } from "../services/ArtistService";
 import { GoPencil } from "react-icons/go";
 import { storage } from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import SocialLinks from "../components/SocialLinks";
 
 const SignUpArtist = () => {
   const { keepLoggedIn } = useUser();
@@ -83,7 +84,7 @@ const SignUpArtist = () => {
   };
 
   return (
-    <>
+    <div className="">
       <LandingNav />
       <div className="circles">
         <ul>
@@ -103,7 +104,7 @@ const SignUpArtist = () => {
           <li className="dark:bg-lightblue" />
         </ul>
       </div>
-      <div className="flex gap-32 justify-center">
+      <div className="flex gap-32 items-center justify-center">
         <section className="flex flex-col items-center justify-center">
           <div className="rounded-xl relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-20 py-8 flex flex-col items-center gap-8">
             <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
@@ -115,7 +116,7 @@ const SignUpArtist = () => {
 
             <form
               onSubmit={handleSignUp}
-              className="flex flex-col gap-6 text-xl w-full"
+              className="flex flex-col gap-4 text-xl w-full"
             >
               <label>
                 <span className="font-montserrat">Nome</span>
@@ -203,7 +204,7 @@ const SignUpArtist = () => {
             <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
               Informações adicionais
             </h1>
-            <form className="flex flex-col gap-6 text-xl w-full">
+            <form className="flex flex-col gap-4 text-xl w-full">
               <span>Foto de perfil</span>
               <input
                 type="file"
@@ -240,7 +241,7 @@ const SignUpArtist = () => {
                 <img
                   src={banner ? URL.createObjectURL(banner) : "/default.png"}
                   alt=""
-                  className="rounded-lg border-4 border-darkblue dark:border-lightblue w-full object-cover h-52"
+                  className="rounded-lg border-4 border-darkblue dark:border-lightblue w-full object-cover h-16 md:h-32"
                 />
 
                 <label
@@ -250,61 +251,40 @@ const SignUpArtist = () => {
                   <GoPencil className="fill-white" />
                 </label>
               </div>
-
-              <label>
-                Que tipo de arte você produz?
-                <div className="p-3">
-                  <select
-                    value={genre}
-                    onChange={(e) => setGenre(e.target.value)}
-                    className="py-2 px-3 text-black border-2 border-darkblue dark:border-lightblue rounded-lg"
-                  >
-                    <option value="">Escolha uma opção</option>
-                    <option value="Música">Música</option>
-                    <option value="Escultura">Escultura</option>
-                    <option value="Dança">Dança</option>
-                    <option value="Poesia">Poesia</option>
-                  </select>
+              <label htmlFor="">
+                <span className="font-montserrat dark:text-white">
+                  Redes sociais
+                </span>
+                <div className="flex gap-4">
+                  <div className="flex flex-row items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
+                    <FaInstagram className="text-darkblue dark:text-lightblue text-2xl" />
+                    <input
+                      type="text"
+                      placeholder="Insira o link"
+                      className="font-montserrat bg-transparent "
+                    />
+                  </div>
+                  <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
+                    <FaFacebook className="text-darkblue dark:text-lightblue text-2xl" />
+                    <input
+                      type="text"
+                      placeholder="Insira o link"
+                      className="font-montserrat bg-transparent"
+                    />
+                  </div>
                 </div>
               </label>
-              <label>
-                <span className="font-montserrat">Senha</span>
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
-                  <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
-                  <input
-                    type="password"
-                    placeholder="Crie sua senha"
-                    className="font-montserrat bg-transparent"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-              </label>
-
-              <label>
-                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
-                  <MdOutlineLock className="text-darkblue dark:text-lightblue text-2xl" />
-                  <input
-                    type="password"
-                    placeholder="Confirme sua senha"
-                    className="font-montserrat bg-transparent"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-                </div>
-              </label>
-
               <button
                 type="submit"
                 className="py-2 font-bold w-full rounded-lg bg-darkblue dark:bg-lightblue text-white"
               >
-                Cadastrar-se
+                Cadastrar Informações
               </button>
             </form>
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

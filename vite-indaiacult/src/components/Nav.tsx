@@ -6,6 +6,7 @@ import { LuPalette } from "react-icons/lu";
 import { Link, useLocation } from "react-router-dom";
 import { PiFrameCorners } from "react-icons/pi";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { FaCirclePlus } from "react-icons/fa6";
 
 const NavLink = ({
   icon,
@@ -41,6 +42,7 @@ const NavLinks = () => {
         name="Sobre"
         icon={<IoInformationCircleOutline />}
       />
+      <NavLink path="criar-obra" name="Criar Obra" icon={<FaCirclePlus />} />
 
       <LoginButton></LoginButton>
       <ToggleThemeButton></ToggleThemeButton>

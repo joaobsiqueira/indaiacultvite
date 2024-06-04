@@ -19,6 +19,7 @@ import CreateArtist from "./pages/createartist.tsx";
 import SignUpArtist from "./pages/signUpArtist.tsx";
 import ObrasDetailsPage from "./pages/obradetails.tsx";
 import ProfilePageAdm from "./pages/profilepageadm.tsx";
+import CreateObraPage from "./pages/createobra.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -35,6 +36,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   <PrivateRoute
                     element={<SobreDetailPage />}
                     path="/sobre:id"
+                  />
+                  <PrivateRoute
+                    element={<CreateObraPage />}
+                    path="/criar-obra"
                   />
                   <PrivateRoute
                     element={<ArtistDetailstPage />}
