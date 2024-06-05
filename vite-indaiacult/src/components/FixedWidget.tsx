@@ -17,7 +17,6 @@ const FixedWidget = () => {
         <img className="bg-main w-[512px] h-32" />
         <img className="bg-main w-[512px] h-32" />
         <img className="bg-main w-[512px] h-32" />
-        <img className="bg-main w-[512px] h-32" />
       </div>
     </aside>
   );
