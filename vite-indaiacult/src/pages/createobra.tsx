@@ -56,6 +56,7 @@ const CreateObraPage = () => {
           <div className="p-3">
             <select className="py-2 px-3 text-black border-2 border-darkblue dark:border-lightblue rounded-lg">
               <option value="">Escolha uma opção</option>
+              <option value="Pintura">Pintura</option>
               <option value="Música">Música</option>
               <option value="Escultura">Escultura</option>
               <option value="Dança">Dança</option>

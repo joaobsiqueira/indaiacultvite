@@ -24,7 +24,7 @@ const ObrasCard: React.FC<{
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex flex-row items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-4">
             <img
               src={obra.imagemArtista}
               alt="Foto do artista"
@@ -37,7 +37,7 @@ const ObrasCard: React.FC<{
           </h3>
         </div>
         <Link to="/obra/:id">
-          <button className="w-full text-lg bg-darkblue text-white dark:bg-lightblue py-2 rounded-lg font-semibold">
+          <button className="w-full text-lg md:text-xl bg-darkblue text-white dark:bg-lightblue py-1 md:py-2 rounded-lg font-semibold">
             <h2>Ver mais sobre a Obra</h2>
           </button>
         </Link>

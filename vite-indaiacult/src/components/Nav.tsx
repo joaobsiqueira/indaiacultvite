@@ -22,7 +22,7 @@ const NavLink = ({
   return (
     <Link
       to={`/${path}`}
-      className={`flex items-center gap-2 text-xl w-44 text-darkblue dark:text-lightblue font-medium p-2 rounded-md ${
+      className={`flex items-center gap-2 text-xl w-36 md:w-44 text-darkblue dark:text-lightblue font-medium p-2 rounded-md ${
         isActive && "bg-highlight dark:bg-highlightDark dark:text-main "
       }`}
     >
@@ -82,7 +82,7 @@ const Nav = () => {
         </div>
       </nav>
       {isOpen && (
-        <div className="flex flex-col items-center basis-full my-6 gap-5">
+        <div className="flex flex-col items-center basis-full gap-5">
           <NavLinks />
         </div>
       )}

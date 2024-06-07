@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { artists } from "../mock";
-import { artista } from "../interfaces/ArtistInterface";
+import { Artista } from "../interfaces/ArtistInterface";
 import { LuPencil } from "react-icons/lu"; //adicionar icone para editar foto
 
 const ArtistDetailstPage = () => {
   const { id } = useParams();
 
-  const [artista] = useState<artista | undefined>(artists[0]); //fazer setArtista
+  const [artista] = useState<Artista | undefined>(artists[0]); //fazer setArtista
   if (!id || !artista) {
     return <Navigate to={"/artist"} replace />;
   }

@@ -9,7 +9,7 @@ const PrivateRoute: React.FC<{ element: React.ReactNode; path: string }> = ({
   const { isLoggedIn } = useUser();
 
   if (isLoggedIn === undefined) {
-    return <p>carregando</p>;
+    return <p>Faça Login para ver essa página</p>;
   }
 
   return (
