@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useUser } from "../userContext";
-import { NavigationType, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Artista } from "../interfaces/ArtistInterface";

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import LandingNav from "../components/LandingNav";
 import { useNavigate } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaRegUser } from "react-icons/fa6";
-import { SignUpUser } from "../services/SignUpService";
 import { useUser } from "../userContext";
 import { signUpArtista } from "../services/ArtistService";
 import { GoPencil } from "react-icons/go";
@@ -24,6 +23,8 @@ const SignUpArtist = () => {
   const [banner, setBanner] = useState<File | undefined>(undefined);
   const [bannerUrl, setBannerUrl] = useState("");
   const [redessociais, setRedessociais] = useState([""]);
+  const [instagram, setInstagram] = useState("");
+  const [facebook, setFacebook] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -39,19 +40,16 @@ const SignUpArtist = () => {
         return;
       }
 
-      if (image) {
-        const imageRef = ref(storage, "image");
-        await uploadBytes(imageRef, image);
-        const downloadUrl = await getDownloadURL(imageRef);
-        setUrl(downloadUrl);
+      if (!image || !banner) {
+        return;
       }
+      const imageRef = ref(storage, `image/${email}`);
+      await uploadBytes(imageRef, image);
+      const imageUrl = await getDownloadURL(imageRef);
 
-      if (banner) {
-        const bannerRef = ref(storage, "banner");
-        await uploadBytes(bannerRef, banner);
-        const downloadUrl = await getDownloadURL(bannerRef);
-        setBannerUrl(downloadUrl);
-      }
+      const bannerRef = ref(storage, `banner/${email}`);
+      await uploadBytes(bannerRef, banner);
+      const downloadUrl = await getDownloadURL(bannerRef);
 
       const error = await signUpArtista(
         name,
@@ -59,9 +57,9 @@ const SignUpArtist = () => {
         password,
         genre,
         description,
-        redessociais,
-        url,
-        bannerUrl
+        [facebook, instagram],
+        imageUrl,
+        downloadUrl
       );
 
       if (error) {
@@ -104,7 +102,10 @@ const SignUpArtist = () => {
           <li className="dark:bg-lightblue" />
         </ul>
       </div>
-      <div className="flex gap-32 items-center justify-center">
+      <form
+        onSubmit={handleSignUp}
+        className="flex gap-32 items-center justify-center"
+      >
         <section className="flex flex-col items-center justify-center">
           <div className="rounded-xl relative bg-white dark:bg-diffBlack dark:text-white border-highlight dark:border-highlightDark border-4 px-20 py-8 flex flex-col items-center gap-8">
             <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
@@ -114,10 +115,7 @@ const SignUpArtist = () => {
               </span>
             </h1>
 
-            <form
-              onSubmit={handleSignUp}
-              className="flex flex-col gap-4 text-xl w-full"
-            >
+            <div className="flex flex-col gap-4 text-xl w-full">
               <label>
                 <span className="font-montserrat">Nome</span>
                 <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
@@ -186,14 +184,7 @@ const SignUpArtist = () => {
                   />
                 </div>
               </label>
-
-              <button
-                type="submit"
-                className="py-2 font-bold w-full rounded-lg bg-darkblue dark:bg-lightblue text-white"
-              >
-                Cadastrar-se
-              </button>
-            </form>
+            </div>
             <Link to="/login" className="text-xl underline">
               Já possui uma conta?
             </Link>
@@ -204,7 +195,7 @@ const SignUpArtist = () => {
             <h1 className="font-semibold font-montserrat text-xl lg:text-4xl">
               Informações adicionais
             </h1>
-            <form className="flex flex-col gap-4 text-xl w-full">
+            <div className="flex flex-col gap-4 text-xl w-full">
               <span>Foto de perfil</span>
               <input
                 type="file"
@@ -252,6 +243,16 @@ const SignUpArtist = () => {
                 </label>
               </div>
               <label htmlFor="">
+                <span className="">Descrição</span>
+                <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
+                  <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    className="w-full min-h-24 blur-none resize-none"
+                  />
+                </div>
+              </label>
+              <label htmlFor="">
                 <span className="font-montserrat dark:text-white">
                   Redes sociais
                 </span>
@@ -261,7 +262,9 @@ const SignUpArtist = () => {
                     <input
                       type="text"
                       placeholder="Insira o link"
-                      className="font-montserrat bg-transparent "
+                      className="font-montserrat bg-transparent"
+                      value={instagram}
+                      onChange={(e) => setInstagram(e.target.value)}
                     />
                   </div>
                   <div className="flex items-center gap-4 border-4 border-highlight dark:border-highlightDark p-3 rounded-lg">
@@ -270,6 +273,8 @@ const SignUpArtist = () => {
                       type="text"
                       placeholder="Insira o link"
                       className="font-montserrat bg-transparent"
+                      value={facebook}
+                      onChange={(e) => setFacebook(e.target.value)}
                     />
                   </div>
                 </div>
@@ -280,10 +285,10 @@ const SignUpArtist = () => {
               >
                 Cadastrar Informações
               </button>
-            </form>
+            </div>
           </div>
         </section>
-      </div>
+      </form>
     </div>
   );
 };

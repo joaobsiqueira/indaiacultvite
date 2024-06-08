@@ -9,9 +9,10 @@ import LandingNav from "../components/LandingNav";
 import { LoginUser } from "../services/LoginService";
 import { useUser } from "../userContext";
 import { useNavigate } from "react-router-dom";
+import { loginArtista } from "../services/ArtistService";
 
 const Login: React.FC = () => {
-  const { keepLoggedIn } = useUser();
+  const { keepLoggedIn, artista } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,6 +22,7 @@ const Login: React.FC = () => {
     event.preventDefault();
     try {
       const error = await LoginUser(email, password);
+      await loginArtista(email, password);
       if (error) {
         setError(error);
       }

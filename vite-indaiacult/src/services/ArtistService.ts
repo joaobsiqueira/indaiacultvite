@@ -32,25 +32,51 @@ export const signUpArtista = async (
   banner: string
 ) => {
   try {
-    const res = await server.post("/registrar", {
-      name,
+    const res = await server.post("/artista/registrar", {
+      nome: name,
       email,
-      image,
-      description,
+      imagem: image,
+      descricao: description,
       banner,
-      genre,
-      password,
-      redessociais,
+      genero: genre,
+      senha: password,
+      redesSociais: redessociais,
     });
     const artist: Artista = {
       _id: res.data._id,
-      nome: res.data.name,
+      nome: res.data.nome,
       email: res.data.email,
-      imagem: res.data.image,
-      descricao: res.data.description,
+      imagem: res.data.imagem,
+      descricao: res.data.descricao,
       banner: res.data.banner,
-      genero: res.data.genre,
-      redessociais: res.data.redessociais,
+      genero: res.data.genero,
+      redessociais: res.data.redesSociais,
+      avaliacao: res.data.avaliacao,
+      qtdAvaliacao: res.data.qtdAvaliacao,
+      token: res.data.token,
+    };
+    window.localStorage.removeItem("user");
+    window.localStorage.setItem("artist", JSON.stringify(artist as Artista));
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
+export const loginArtista = async (email: string, password: string) => {
+  try {
+    const res = await server.post("/loginArtista", {
+      email,
+      password,
+    });
+    const artist: Artista = {
+      _id: res.data._id,
+      nome: res.data.nome,
+      email: res.data.email,
+      imagem: res.data.imagem,
+      descricao: res.data.descricao,
+      banner: res.data.banner,
+      genero: res.data.genero,
+      redessociais: res.data.redesSociais,
       avaliacao: res.data.avaliacao,
       qtdAvaliacao: res.data.qtdAvaliacao,
       token: res.data.token,
