@@ -5,7 +5,7 @@ import { error } from "console";
 
 export const seeAll = async () => {
   try {
-    const response = await server.get("/artist");
+    const response = await server.get("/artista/listar");
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar artista:", error);

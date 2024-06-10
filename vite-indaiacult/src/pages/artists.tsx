@@ -1,17 +1,27 @@
+import { useEffect, useState } from "react";
 import ArtistCard from "../components/ArtistCard";
 import Section from "../components/Section";
-
-import { artists } from "../mock";
+import { seeAll } from "../services/ArtistService";
+import { Artista } from "../interfaces/ArtistInterface";
 
 const ArtistsPage = () => {
+  const [artists, setArtists] = useState([]);
+
+  useEffect(() => {
+    async () => {
+      const res = await seeAll();
+      setArtists(res);
+    };
+  }, []);
+
   return (
     <Section
       title="Artistas"
       description="Conheça quem alimenta a cultura de Indaiatuba diariamente com seu trabalho"
     >
       <div className="flex flex-col gap-5 ">
-        {artists.map((Artista) => (
-          <ArtistCard Artista={Artista} key={Artista._id} />
+        {artists.map((Artist: Artista) => (
+          <ArtistCard artista={Artist} key={Artist._id} />
         ))}
       </div>
     </Section>

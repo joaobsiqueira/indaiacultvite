@@ -1,7 +1,1 @@
-export interface genero {
-  pintura: string;
-  musica: string;
-  escultura: string;
-  danca: string;
-  poesia: string;
-}
+export type genero = "Pintura" | "Poesia" | "Música" | "Escultura" | "Dança";
