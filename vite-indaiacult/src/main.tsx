@@ -56,7 +56,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                   />
                   <PrivateRoute
                     element={<ProfilePageAdm />}
-                    path={"/editar-perfil"}
+                    path={"/editar-perfil/artistis/:id"}
                   />
                 </Layout>
               }

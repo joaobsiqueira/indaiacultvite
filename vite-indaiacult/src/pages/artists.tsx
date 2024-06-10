@@ -8,10 +8,11 @@ const ArtistsPage = () => {
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    async () => {
+    const get = async () => {
       const res = await seeAll();
       setArtists(res);
     };
+    get();
   }, []);
 
   return (

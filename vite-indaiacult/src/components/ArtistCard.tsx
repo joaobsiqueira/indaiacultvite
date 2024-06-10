@@ -32,7 +32,7 @@ const ArtistCard = ({ artista }: ArtistaCard) => {
           <p className="text-black/50 dark:text-white/50 text-xl font-semibold">
             {artista?.genero}
           </p>
-          <h3 className=" font-bold font-montserrat dark:text-white text-2xl">
+          <h3 className=" font-bold font-montserrat dark:text-white text-xl">
             {artista?.nome}
           </h3>
         </div>
